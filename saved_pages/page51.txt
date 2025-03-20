@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <title>Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin? &#x2F; Хабр</title>
+<meta property="fb:app_id" content="444736788986613">
+<meta property="fb:pages" content="472597926099084">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@habr_com">
+<meta property="og:site_name" content="Хабр">
+<link href="https://habr.com/ru/rss/post/338924/?fl=ru" type="application/rss+xml" title rel="alternate" name="rss">
+<link href="https://habr.com/ru/companies/jugru/articles/338924/" rel="canonical" data-hid="e3fa780">
+<link rel="image_src" href="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/" data-hid="2a79c45">
+<meta property="og:title" content="Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?">
+<meta name="twitter:title" content="Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?">
+<meta name="aiturec:title" content="Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?">
+<meta name="description" content="Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...">
+<meta itemprop="description" content="Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...">
+<meta property="og:description" content="Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...">
+<meta name="twitter:description" content="Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...">
+<meta property="aiturec:description" content="Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...">
+<meta itemprop="image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/">
+<meta property="og:image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="aiturec:image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/">
+<meta name="twitter:image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/">
+<meta property="vk:image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/?format=vk">
+<meta property="vk:image" content="https://habr.com/share/publication/338924/7db1c61dfe0628dc6fa584b1581689c8/?format=vk?format=vk">
+<meta property="aiturec:item_id" content="338924">
+<meta property="aiturec:datetime" content="2017-09-29T07:42:17.000Z">
+<meta content="https://habr.com/ru/companies/jugru/articles/338924/" property="og:url">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="keywords" content="kotlin, программирование, пазлер, кекс">
+<script type="application/ld+json" data-hid="1e0f0a2">{"@context":"http:\/\/schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/habr.com\/ru\/companies\/jugru\/articles\/338924\/"},"headline":"Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?","datePublished":"2017-09-29T10:42:17+03:00","dateModified":"2017-09-29T17:03:56+03:00","author":{"@type":"Person","name":"Алексей Городищев"},"publisher":{"@type":"Organization","name":"Habr","logo":{"@type":"ImageObject","url":"https:\/\/habrastorage.org\/webt\/a_\/lk\/9m\/a_lk9mjkccjox-zccjrpfolmkmq.png"}},"description":"Вначале была Java (ладно, не то чтобы в самом начале&hellip; но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains...","url":"https:\/\/habr.com\/ru\/companies\/jugru\/articles\/338924\/#post-content-body","about":["c_jugru","h_kotlin","h_programming","f_develop"],"image":["https:\/\/habrastorage.org\/webt\/59\/cc\/f5\/59ccf540452ce749063272.jpeg","https:\/\/habrastorage.org\/webt\/59\/cd\/00\/59cd0075db1af556127505.jpeg","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/474\/499\/173\/474499173253787f1acdf17f31527df9.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/3cc\/581\/af0\/3cc581af06474030526075ac39ac9cf9.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/12a\/793\/cd1\/12a793cd12a734f499ca6cddb4b9f8cd.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/6be\/90a\/0f6\/6be90a0f6bf444b55d0210b30f8b6561.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/af7\/2d1\/c7f\/af72d1c7fd768383ebb737ee4073cfc8.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/38a\/ae2\/a3a\/38aae2a3a3731e6386188cfc96133383.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/56f\/11a\/ccb\/56f11accb80e84979baeed8eb3e9bdfb.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/e30\/e89\/312\/e30e8931299bde0d73915d39fd297663.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/b79\/1e8\/5aa\/b791e85aa58e71fa8ae0a9aa3544ea22.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/98f\/ace\/0c8\/98face0c80246ce47a683e4196b919a8.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/b63\/748\/62b\/b6374862b73ca7f57db3d72fd7922c1e.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/850\/cba\/b0e\/850cbab0e686bf9b463970c441f84e0b.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/957\/ffc\/599\/957ffc5998976612a8e3e56a65ce0d7a.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/d5f\/219\/51e\/d5f21951ef6c123b9eab36a338a3a36f.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/d91\/fcb\/514\/d91fcb514f33428c0c139fae24bcc07e.png","https:\/\/habrastorage.org\/getpro\/habr\/post_images\/96d\/6d1\/5e9\/96d6d15e91b57bbece3ed1fb0707dd8b.png"]}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1.0,viewport-fit=cover,maximum-scale=1,user-scalable=0">
+    <meta name="referrer" content="unsafe-url">
+    <style>
+      /* cyrillic-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmojLazX3dGTP.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+      }
+
+      /* cyrillic */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5Vvk4jLazX3dGTP.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+
+      /* latin-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmYjLazX3dGTP.woff2) format('woff2');
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5Vvl4jLazX3dA.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      /* cyrillic-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSxf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+      }
+
+      /* cyrillic */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveQhf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+
+      /* latin-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSBf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveRhf6Xl7Glw.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      /* cyrillic-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSxf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+      }
+
+      /* cyrillic */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eQhf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+
+      /* latin-ext */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSBf6Xl7Gl3LX.woff2) format('woff2');
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eRhf6Xl7Glw.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+    <link rel="preload" href="https://assets.habr.com/habr-web/css/theme/light-v1.css" as="style" media="(prefers-color-scheme: light)" /><link rel="preload" href="https://assets.habr.com/habr-web/css/theme/dark-v1.css" as="style" media="(prefers-color-scheme: dark)" /><link id="light-colors" rel="stylesheet" href="https://assets.habr.com/habr-web/css/theme/light-v1.css" media="(prefers-color-scheme: light)" /><link id="dark-colors" rel="stylesheet" href="https://assets.habr.com/habr-web/css/theme/dark-v1.css" media="(prefers-color-scheme: dark)" />
+    <script>window.i18nFetch = new Promise((res, rej) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', '/js/i18n/ru-compiled.35b2fec11bb79a62419ab67779c2dd82.json');
+          xhr.responseType = 'json';
+          xhr.onload = function(e) {
+            if (this.status === 200) {
+              res({ru: xhr.response});
+            } else {
+              rej(e);
+            }
+          };
+          xhr.send();
+        });</script>
+    <style>
+      .grecaptcha-badge {
+        visibility: hidden;
+      }
+    </style>
+    <meta name="habr-version" content="2.233.0">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="#303b44">
+    <meta name="msapplication-TileColor" content="#629FBC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="https://assets.habr.com/habr-web/img/favicons/favicon-16.png">
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="https://assets.habr.com/habr-web/img/favicons/favicon-32.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-76.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-120.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-152.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-180.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="256x256" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-256.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1136x640.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2436x1125.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1792x828.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_828x1792.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1334x750.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1242x2668.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2208x1242.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1125x2436.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1242x2208.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2732x2048.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2688x1242.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2224x1668.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_750x1334.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2048x2732.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2388x1668.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1668x2224.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_640x1136.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1668x2388.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_2048x1536.png">
+    <link rel="apple-touch-startup-image"
+      media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="https://assets.habr.com/habr-web/img/splashes/splash_1536x2048.png">
+    <link rel="mask-icon" color="#77a2b6" href="https://assets.habr.com/habr-web/img/favicons/apple-touch-icon-120.svg">
+    <link crossorigin="use-credentials" href="/manifest.webmanifest" rel="manifest">
+    <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
+    <script>window.yaContextCb = window.yaContextCb || []</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+  <link rel="preload" href="https://assets.habr.com/habr-web/css/chunk-vendors.04465f7c.css" as="style"><link rel="preload" href="https://assets.habr.com/habr-web/js/chunk-vendors.3b11d41f.js" as="script"><link rel="preload" href="https://assets.habr.com/habr-web/css/app.20959a76.css" as="style"><link rel="preload" href="https://assets.habr.com/habr-web/js/app.7a97ea6d.js" as="script"><link rel="stylesheet" href="https://assets.habr.com/habr-web/css/chunk-vendors.04465f7c.css"><link rel="stylesheet" href="https://assets.habr.com/habr-web/css/app.20959a76.css"></head>
+  <body>
+    
+    <div id="mount"><div id="app" data-async-called="true"><div class="tm-layout__wrapper"><!--[--><!----><div></div><div class="tm-feature tm-feature"><!----></div><header class="tm-header" data-test-id="header"><div class="tm-page-width"><!--[--><div class="tm-header__container"><div class="tm-header__burger-nav" data-test-id="burger-nav"><button class="tm-header__button tm-header__button_burger" type="button"><svg class="tm-svg-img tm-header__icon tm-header__icon-burger" height="16" width="16"><title>Меню</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#header-burger"></use></svg></button></div><span class="tm-header__logo-wrap"><a class="tm-header__logo tm-header__logo_hl-ru tm-header__logo" href="/ru/"><svg class="tm-svg-img tm-header__icon" height="16" width="16"><title>Хабр</title><use xlink:href="/img/habr-logo-ru.svg#logo"></use></svg></a><span style="display:none;" class="tm-header__beta-sign">β</span></span><!----><div class="tm-header-user-menu tm-header_user-menu"><a href="/ru/search/" class="tm-header-user-menu__item tm-header-user-menu__search" data-test-id="search-button"><svg class="tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_search" height="24" width="24"><title>Поиск</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#search"></use></svg></a><!----><!----><div class="tm-header-user-menu__item tm-header-user-menu__write"><div><svg class="tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_write" height="24" width="24"><title>Написать публикацию</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#write"></use></svg></div><!----></div><!--[--><div class="tm-header-user-menu__item"><button class="tm-header-user-menu__toggle" data-test-id="user-menu-settings"><svg class="tm-svg-img tm-header-user-menu__icon" height="24" width="24"><title>Настройки</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#page-settings"></use></svg></button></div><a href="https://habr.com/kek/v1/auth/habrahabr/?back=/ru/companies/jugru/articles/338924/&amp;hl=ru" rel="nofollow" class="tm-header-user-menu__item"><!--[--><button class="btn btn_solid btn_small tm-header-user-menu__login" type="button"><!--[-->Войти<!--]--></button><!--]--></a><!--]--><!----><!--teleport start--><!--teleport end--><!----></div></div><!--]--></div></header><div class="tm-layout"><div class="tm-page-progress-bar"></div><!----><!----><div class="tm-page-width"><!--[--><!--]--></div><main class="tm-layout__container"><div class="tm-page" hl="ru" companyname="jugru" data-async-called="true" style="--0c809c5a:16px;--a086013e:100%;--7c457026:0;"><div class="tm-page-width"><!--[--><div class="tm-page__header"><!--[--><div class="tm-company-card__branding tm-company-card__branding_loading tm-company-article__branding" data-test-id="company-card-branding"><div class="tm-company-card__branding-placeholder"><!----></div><a href="http://jugru.org/?utm_medium=habr&amp;utm_source=header2025"><img class="tm-company-card__branding-image" src="//habrastorage.org/getpro/habr/branding/4f3/90a/544/4f390a544efda63b4d31ab7d9c41396e.jpeg"></a></div><!--]--></div><div class="tm-page__wrapper"><div class="tm-page__main_has-sidebar tm-page__main"><div class="pull-down"><!----><div class="pull-down__header" style="height:0px;"><div class="pull-down__content" style="bottom:10px;"><svg class="tm-svg-img pull-down__icon pull-down__arrow" height="24" width="24"><title>Обновить</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#pull-arrow"></use></svg></div></div><!--[--><!--[--><div class="tm-article-presenter"><!--[--><!--]--><div class="tm-article-presenter__body" data-test-id="article-body"><div class="tm-misprint-area"><div class="tm-misprint-area__wrapper"><!--[--><article class="tm-article-presenter__content tm-article-presenter__content_narrow"><!--[--><div class="tm-article-presenter__header"><!--[--><!--]--><div class="tm-article-snippet tm-article-snippet tm-article-presenter__snippet"><!--[--><!--]--><div class="tm-article-snippet__meta-container"><div class="tm-article-snippet__meta"><span class="tm-user-info tm-article-snippet__author"><a href="/ru/users/BigSolarWolf/" class="tm-user-info__userpic" data-test-id="user-info-pic" title="BigSolarWolf"><div class="tm-entity-image"><img alt="" class="tm-entity-image__pic" height="32" src="//habrastorage.org/r/w64/getpro/habr/avatars/230/68b/e18/23068be18d21e5c15af2a2c055e31869.jpg" width="32"></div></a><span class="tm-user-info__user tm-user-info__user_appearance-default" data-test-id="user-info-description"><a href="/ru/users/BigSolarWolf/" class="tm-user-info__username">BigSolarWolf <!----></a><!--[--><span class="tm-article-datetime-published"><time datetime="2017-09-29T07:42:17.000Z" title="2017-09-29, 10:42">29  сен  2017 в 10:42</time></span><!--]--></span></span></div><!----></div><h1 class="tm-title tm-title_h1" lang="ru" data-test-id="articleTitle"><span>Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?</span></h1><div class="tm-article-snippet__stats" data-test-id="articleStats"><!----><div class="tm-article-reading-time"><span class="tm-svg-icon__wrapper tm-article-reading-time__icon"><svg class="tm-svg-img tm-svg-icon" height="24" width="24"><title>Время на прочтение</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#clock"></use></svg></span><span class="tm-article-reading-time__label">15 мин</span></div><span class="tm-icon-counter tm-data-icons__item"><svg class="tm-svg-img tm-icon-counter__icon" height="24" width="24"><title>Количество просмотров</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#counter-views"></use></svg><span class="tm-icon-counter__value" title="13820">14K</span></span></div><div class="tm-publication-hubs__container" data-test-id="articleHubsList"><div class="tm-publication-hubs"><!--[--><span class="tm-publication-hub__link-container"><a href="/ru/companies/jugru/articles/" class="tm-publication-hub__link"><!--[--><span>Блог компании JUG Ru Group</span><!----><!--]--></a></span><span class="tm-publication-hub__link-container"><a href="/ru/hubs/kotlin/" class="tm-publication-hub__link"><!--[--><span>Kotlin</span><span class="tm-article-snippet__profiled-hub" title="Профильный хаб">*</span><!--]--></a></span><span class="tm-publication-hub__link-container"><a href="/ru/hubs/programming/" class="tm-publication-hub__link"><!--[--><span>Программирование</span><span class="tm-article-snippet__profiled-hub" title="Профильный хаб">*</span><!--]--></a></span><!--]--></div></div><!----><!----><!----></div></div><!--[--><!----><div class="tm-article-body" data-gallery-root lang="ru"><div><!--[--><!--]--></div><div id="post-content-body"><div><div class="article-formatted-body article-formatted-body article-formatted-body_version-1"><div xmlns="http://www.w3.org/1999/xhtml">Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin, «более лучшую» Java, универсальный язык, понятный, мощный и прозрачный. <br/>
+<br/>
+В свое время Андрей <a href="https://habr.com/ru/users/abreslav/" class="user_link">abreslav</a> Бреслав говорил, что Kotlin разрабатывался как удобный и предсказуемый язык. Тогда же прозвучало мнение, что в этом языке вы не найдете паззлеров (коротких кусочков кода, результаты выполнения которых оказываются неожиданными, пугающими или разочаровывающими). Ну что же, Антон <a href="https://habr.com/ru/users/antonkeks/" class="user_link">antonkeks</a> Кекс поколдовал в IDEA и кое-что все-таки накопал, да еще на наглядных примерах рассказал о своих находках в паре с Филиппом Кексом. Смотрите сами:<br/>
+<br/>
+<div class="oembed"><div><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;"><div class="tm-iframe_temp" data-src="https://www.youtube.com/embed/mKnY_uI3Z9Q?rel=0&amp;showinfo=1" data-style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" id="" width=""></div></div></div></div><br/>
+<br/>
+Под катом — подборка таких паззлеров и развернутые комментарии к ним. В основе материала доклад Антона Кекса (Codeborne) и Филиппа Кекса (Creative mobile) на конференции <a href="http://2017.mobiusconf.com/">Мобиус 2017 (Санкт-Петербург)</a>.<br/>
+<a name="habracut"></a><br/>
+Начнем с Котлина. Все говорят, что на Яве куча проблем: на острове куча вулканов, там землетрясения. Ее нужно спасать.<br/>
+<br/>
+<div style="text-align:center;"><img src="https://habrastorage.org/r/w780q1/webt/59/cc/f5/59ccf540452ce749063272.jpeg" data-src="https://habrastorage.org/webt/59/cc/f5/59ccf540452ce749063272.jpeg" data-blurred="true"/></div><br/>
+Поэтому на ум приходит другой остров — Котлин. <br/>
+<br/>
+<div style="text-align:center;"><img src="https://habrastorage.org/r/w780q1/webt/59/cd/00/59cd0075db1af556127505.jpeg" data-src="https://habrastorage.org/webt/59/cd/00/59cd0075db1af556127505.jpeg" data-blurred="true"/></div><br/>
+Там спокойно, ничего не происходит. Он очень плоский, никаких вулканов. Находится здесь рядом. Поэтому Kotlin — это спаситель Java, особенно для Android-разработчиков — таких, как мы.<br/>
+<br/>
+<h2>Несколько слов о Котлине</h2><br/>
+Что такое Kotlin, здесь более-менее все знают. Потому что какой дурак сегодня пишет под Android без Котлина? Это, мне кажется, уже мазохизм. Он отлично работает. Пару недель назад вышел первый билд Kotlin native. Скоро, может быть, будем и под iOS писать на Котлине.<br/>
+<br/>
+Это прагматический язык, open-source, очень прикольный тулинг — он был задизайнен, чтобы хорошо работала IDE. Это камень в огород Apple-овского языка Swift и ему подобных. JetBrains хорошо push-ит Kotlin — специально дизайнит язык под свою IDE.<br/>
+<br/>
+Все мы знаем, что Kotlin очень долго разрабатывался. Прошло шесть лет, прежде чем была выпущена версия 1.0. JetBrains очень старались, но, видимо, сделать новый язык не так просто. За прошедшие годы (2010 — 2016) они даже успели поменять логотип на более современный.<br/>
+<br/>
+<div style="text-align:center;"><img src="https://lh4.googleusercontent.com/37SoO6N7fN7BcBu97cTV1WEBOJd0lscvUJ-XSdutXicmCmhxUbkJzfY4h4M9blI5bJU7BOcZdZ7mIQHa7MnEIAPwCE6bBIeaJ5NDZ139drh3zzX1i6-xkS723oscI4F5kFigMD_C"/></div><br/>
+Учитывая, как долго его разрабатывали, язык должен быть превосходный. Это должен быть самый лучший язык в мире, так как многие другие языки девелопились гораздо быстрее. Например, всем известно, что JavaScript был сделан за две недели. Хотя, это, конечно, не rocket science (rocket science — это SpaceX, которые за четыре года научились садиться на платформу на настоящей ракете). <br/>
+<br/>
+И самое главное — вы все должны гордиться, потому что Kotlin разрабатывается в Петербурге, и это один из немногих русских языков программирования. Старые русские языки программирования выглядели приблизительно вот так (справа):<br/>
+<br/>
+<div style="text-align:center;"><img src="https://lh4.googleusercontent.com/WP8Yhn3idbYugo-kFXWpcojPQ2dyWzF3jjTh-TehQUgOd2t3NLD8EB7J_J2WoAr1Nh3wsaDfui8ksjguyAP2Iww8dBU-o_-qdJh2lD8wg28ar5GGhgE9DT-1BBxJfybUpYrgtagn"/></div><br/>
+К счастью, этот язык был ориентирован на международную аудиторию, поэтому вместо кейворда «фу» его создатели все-таки решили использовать кейворд fun, над которым все «making fun». Так что это веселый язык.<br/>
+<br/>
+<h2>Пазлеры</h2><br/>
+Что такое пазлеры? <br/>
+<br/>
+Это короткие программы, написанные на Котлине, с интересным поведением. А вы будете угадывать, что они печатают. Вы будете голосовать за предложенные варианты ответа, а тот, кто первый поднимет руку и не только угадает правильный вариант, но и объяснит, почему так происходит, получит приз.<br/>
+<br/>
+Первая половина пазлеров ориентирована на тех, кто не очень хорошо знаком с Kotlin; вторая половина — для хардкорных Kotlin-разработчиков.<br/>
+<br/>
+Kotlin известен тем, что не повторяет некоторые известные пазлеры Java. Однако в идеальном языке программирования не должно быть пазлеров вообще. Получается, что и Kotlin не идеален — не бывает идеальных языков.<br/>
+<br/>
+Но Kotlin уже взлетел во многих мобильных приложениях. Этот язык создавался как прагматичный и удобный во многих кейсах. Он удобен в том числе с точки зрения юзабилити. И он все еще развивается. С разработчиками Котлина можно беседовать и пытаться договориться, как и чего исправить.<br/>
+<br/>
+Все демонстрируемые пазлеры запускаются с Kotlin 1.1.1 — с последней стабильной версией. Исходные коды пазлеров находятся на GitHub — потом их можно посмотреть: <a href="https://github.com/angryziber/kotlin-puzzlers/tree/mobius">https://github.com/angryziber/kotlin-puzzlers/tree/mobius</a>.<br/>
+У кого появятся идеи новых пазлеров, присылайте pull-реквесты. Ждем.<br/>
+<br/>
+<h2>Пазлер 1</h2><br/>
+Котлин хорош тем, что он поддерживает nullability, точнее, он null safe — можно так сказать.<br/>
+<br/>
+<pre><code class="kotlin">package p1_nullean
+
+val s: String? = null
+if (s?.isEmpty()) println("true")
+</code></pre><br/>
+У него есть различия между nullable и не nullable типами. Это значит, если мы хотим присвоить куда-то null, это должен быть nullable-тип (с вопросиком). Вероятно, эту идею предложил C#, но он ее не доделал — там только примитивы могут быть nullable. А в Котлине это уже сделано нормально для всех типов. В принципе, язык рассчитан на то, чтобы никогда вы не получали страшных NullPointerException в рантайме. <br/>
+<br/>
+В данном примере Котлин перенял из Groovy отличный null-safe оператор s?, который позволяет на нуле вызвать какой-то метод и не схлопотать сразу в рантайме какие-то эксепшены. <br/>
+<br/>
+Давайте посмотрим, какой из возможных вариантов мы сейчас получим:<br/>
+<br/>
+<ul>
+<li>nothing<br/>
+</li>
+<li>true<br/>
+</li>
+<li>NullPointerException<br/>
+</li>
+<li>Will not compile<br/>
+</li>
+</ul><br/>
+Запускаем. Смотрим.<br/>
+<br/>
+<img src="https://lh6.googleusercontent.com/JGYbC654gXHBv14QAoBU0kFGozc9j7Yi2WNpME0ypFM_jMzDlaxs5xdySKmJs2FYthZYo87oRlHq1_53v_af9HdhUz_6wNy8IOwt9g6Tpp3N0AkhlLDIqKEuDh-T2fi-bxWW67-e"/><br/>
+<br/>
+Не скомпилировалось.<br/>
+<br/>
+Почему?<br/>
+<br/>
+Котлин — type safe язык, поэтому результат выражения s?.isEmpty() — null, поэтому он не кастится в false.<br/>
+<br/>
+Исправить легко (надо написать так, чтобы Котлин вел себя так же, как Groovy):<br/>
+<br/>
+<pre><code class="kotlin">if (s?.isEmpty() ?: false) println("true")
+</code></pre><br/>
+Это не очень красиво, но сейчас так. В котлиновский трекер уже засабмичено предложение все-таки интерпретировать null как false, но там есть свои нюансы. Еще неизвестно, получим мы эту фичу когда-нибудь или нет. Есть разные мнения, но с точки зрения удобства использования языка это небольшой косяк.<br/>
+<br/>
+<h2>Пазлер 2</h2><br/>
+Пазлер очень похожий: у нас та же переменная nullable string и мы на нем пытаемся вызвать метод.<br/>
+<br/>
+<pre><code class="kotlin">package p2_nulleanExtended
+val x: String? = null
+print(x.isNullOrEmpty())
+</code></pre><br/>
+Какой будет результат?<br/>
+<br/>
+<ul>
+<li>true<br/>
+</li>
+<li>false<br/>
+</li>
+<li>NullPointerException<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+</ul><br/>
+Запускаем… <br/>
+Ответ: true.<br/>
+<br/>
+<img src="https://lh3.googleusercontent.com/AhQlqjO4NSlNx7shhCyL_ODySv17Qt2bijf9saRWY8v4DIz97yf7QAMU9HaFYzWID5O6nKtUYBA6BaevowqigpbzY4UKL5baIE_-xvuRpQXjW5TPrCkobI8QEIITIxS7tffiI5Pv"/><br/>
+<br/>
+Почему? Это extension-функция из стандартной библиотеки Kotlin, которая «повешена» на nullable CharSequence. Поэтому в подобном кейсе она обрабатывается нормально.<br/>
+<br/>
+<img src="https://lh4.googleusercontent.com/Gd30D7U6yYx9mUXngNs8-11oKBza7MH4Z8CgGFq6Ik9bDU9u0sCSzZK9D-7pKT9nNlCGMCHVD9axVIZy--POT0B5ibeeRCBq1fM2VrZMtP6RrvC_3v9NwZcytYe-zCL7Om2eEzOA"/><br/>
+<br/>
+Действительно, в Котлине можно некоторые функции запускать на null. Компилятор про это знает и позволяет это делать.<br/>
+<br/>
+Если бы мы поставили знак вопроса, IDEA бы нам сказала, что он тут не нужен.<br/>
+<br/>
+<pre><code class="kotlin">print(x?.isNullOrEmpty())
+</code></pre><br/>
+Хорошо, что функция названа по-человечески (о результате можно догадаться по названию).<br/>
+<br/>
+Если запустить во втором варианте (со знаком вопроса), результат будет null, потому что выражение в скобках теперь приводится в null, и тогда эта функция не вызывается, несмотря на то, что она поддерживает null. Это, кстати, еще один пазлер.<br/>
+<br/>
+<h2>Пазлер 3</h2><br/>
+<pre><code class="kotlin">package p3_platformNulls
+
+class Kotlin {
+    fun hello(name: String) = print("Hello $name")
+}
+
+fun main(args: Array&lt;String&gt;) {
+    val prop = System.getProperty("key")
+    Kotlin().hello(prop)
+}
+</code></pre><br/>
+В Котлине есть такая интересная фича — третий стейт nullability. Посмотрим, что будет, если мы вызовем:<br/>
+<br/>
+<pre><code class="kotlin">val prop = System.getProperty("key")
+</code></pre><br/>
+и передадим это в метод hello у класса Kotlin, который должен его распечатать:<br/>
+<br/>
+<pre><code class="kotlin">Kotlin().hello(prop)
+</code></pre><br/>
+Что получится на выходе?<br/>
+<br/>
+<ul>
+<li>hello<br/>
+</li>
+<li>hello null<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+<li>ни один из приведенных вариантов<br/>
+</li>
+</ul><br/>
+Вообще type inference — отличная тема. <br/>
+<br/>
+Запускаем. Получаем IllegalStateExeption.<br/>
+<br/>
+<img src="https://lh5.googleusercontent.com/6pR4SNVIXkdAz6AjLOIQKGLkEAgCUdRlYOKbGgxu7gHC8TZiJv0nv0CJ-0VtyTMNRpR2zbLXCPADXfnfXU36uKJ8bkW8bRUSOtquo4KlOarDEbwl7JVLdCe5JY7kJd2xoHuQTpiP"/><br/>
+<br/>
+Почему?<br/>
+<br/>
+Значение prop будет null, тип — String!.. Он идет в hello, и в рантайме будет проверка, что должен быть не null, а он null.<br/>
+<br/>
+На самом деле в начальной версии Котлина действительно сделали, что когда из Java приходит String, он всегда по умолчанию nullable.<br/>
+<br/>
+<pre><code class="kotlin">val prop: String? = System.getProperty("key")
+</code></pre><br/>
+<br/>
+Это привело к тому, что стало очень неудобно писать код, когда идет интероп с Java. И решили сделать виртуальный тип String! (с восклицательным знаком). Это как раз третий вариант nullability — называется «я не знаю».<br/>
+<br/>
+<pre><code class="kotlin">val prop: String! = System.getProperty("key")
+</code></pre><br/>
+Однако такой код не компилируется, поскольку тип String! нельзя объявить самостоятельно. Он может прийти только из Java.<br/>
+<br/>
+Поэтому такие штуки лучше заранее объявлять как nullable или не nullable (как правило, вы из API знаете, может там null когда-нибудь прийти или нет).<br/>
+<br/>
+А вот такой код скомпилируется, но может упасть в рантайме:<br/>
+<br/>
+<pre><code class="kotlin">val prop: String = System.getProperty("key")
+</code></pre><br/>
+IDEA всегда знает, где какой тип. Можно нажать на переменной Ctrl+q и выяснить.<br/>
+Но закончим с nullability, перейдем к другой теме.<br/>
+<br/>
+<h2>Пазлер 4</h2><br/>
+У нас есть 2 функции, которые должны печатать. Мы их объявляем и запускаем — должно быть все просто:<br/>
+<br/>
+<pre><code class="kotlin">package p4_kotlinVsScala
+
+fun main1() = print("Hello")
+
+fun main2() = {
+    print("Hello2")
+}
+
+main1()
+main2()
+</code></pre><br/>
+Что будет на выходе?<br/>
+<br/>
+<ul>
+<li>Hello<br/>
+</li>
+<li>Hello2<br/>
+</li>
+<li>HelloHello2<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+</ul><br/>
+Запускаем… Получаем Hello.<br/>
+<br/>
+<img src="https://lh6.googleusercontent.com/UJBQIVXTl81Y051klAVUtz-Mv0UxTKdHMA5tW7WGV53-JUvYccUvDFSc-PKMBgEjmdt55Hp15sxtNa2WmEPmfd47WzJPovYUzbj6oGQHxQ5pB1gbZEpqknVi9ZxPgHfRqmFXZ7Xx"/><br/>
+<br/>
+Почему?<br/>
+<br/>
+Main1 вернет юнит, но при этом вызовет print(«Hello»). А main2 всего лишь вернет лямбду, которая не будет выполняться.<br/>
+<br/>
+Исправить можно так:<br/>
+<br/>
+<pre><code class="kotlin">main2()()
+</code></pre><br/>
+Второй, на мой взгляд, лучший вариант исправления — убрать знак равно у main2, поскольку он всех только смущает:<br/>
+<br/>
+<pre><code class="kotlin">fun main2() {
+print("Hello 2")
+}
+</code></pre><br/>
+Почему я назвал этот пример Котлин vs Scala? Те, кто писал на Scala, знают, что там этот код — абсолютно валидное объявление функции, которая что-то возвращает:<br/>
+<br/>
+<pre><code class="kotlin">fun main2() = { }
+</code></pre><br/>
+Бедные Scala-девелоперы, которые будут писать на Котлине. Они, наверное, постоянно будут возвращать лямбды без запуска.<br/>
+<br/>
+<h2>Пазлер 5</h2><br/>
+У нас есть list из цифр, мы его перебираем методом forEach. ForEach, как и в Groovy, если параметр лямбда не объявлен, знает it. И мы проверяем, что он не больше 2, и печатаем.<br/>
+<br/>
+<pre><code class="kotlin">package p5_sneakyReturn
+
+fun main(args: Array&lt;String&gt;) {
+    listOf(1, 2, 3).forEach {
+        if (it &gt; 2) return
+        print(it)
+    }
+    print("ok")
+}
+</code></pre><br/>
+Какой будет итог?<br/>
+<br/>
+<ul>
+<li>123ok<br/>
+</li>
+<li>12ok<br/>
+</li>
+<li>12<br/>
+</li>
+<li>бесконечный цикл<br/>
+</li>
+</ul><br/>
+Запускаем…<br/>
+<br/>
+<img src="https://lh4.googleusercontent.com/aUKe9b1GuXyRDiV4dsfloS2kpB8R2rzRPGKUr02rmtEA3z8Gnox3fgwBpK9S4582ZP4VgBg-pHSH1eUpz3fMjrCTbgAYCTRMb3DQ-XgkKFkv59KwOU2iOYRlTTMH5gNX8EGWUWNy"/><br/>
+<br/>
+12<br/>
+Что за ерунда?<br/>
+<br/>
+В Котлине return возвращает из функции. А чтобы выйти из конкретной лямбды, внутри этой функции нужно после return указать название лямбды:<br/>
+<br/>
+<pre><code class="kotlin">if (it &gt; 2) return@forEach
+</code></pre><br/>
+Так можно выйти из лямбды. Если вы пишите на Java и вам очень нужно выйти из лямбды, это вариант исправления кода.<br/>
+<br/>
+На самом деле return в Котлине работает так, как он должен работать. Если бы мы до этого не писали бы на C# и Java, наверное, и не ошиблись бы, потому что return возвращается из функции main. Все логично. И нет никаких странных фич с лямбдами, из которых тоже почему-то нужно выйти.<br/>
+<br/>
+Почему это так работает? <br/>
+<br/>
+<img src="https://lh3.googleusercontent.com/YtVsB0w9KCL0EN9kQn6JKssYrcJzElZt5vAaQX8XLNWwWlgPg55GOwwdLE0KLRKKl73DqghssNVX8aEGTm9lpcA6CWNsh7swYVi-2zci5CW4hdjIrye9GUDw5dN3_hRQdAyLM1Tm"/><br/>
+<br/>
+Функция forEach объявлена как inline функция. В Kotlin компилятор не вызывает эту функцию в скомпилированном коде, а берет код этой функции и вставляет на то место, где был call. В результате здесь получается обычный for-цикл и, естественно, тогда return выходит из функции main.<br/>
+<br/>
+Как понять, что это Inline функция? Во-первых, в IDEA есть Ctrl+p. А во-вторых, если вызвать return, а функция окажется не inline, то компилятор скажет: «Извини, нельзя это делать». То есть компилятор не позволит нам сделать какую-то ерунду. <br/>
+<br/>
+Есть еще один вариант, как можно исправить этот код, чтобы он возвращал «12ok». Нужно это объявить как функцию, а не лямбду. <br/>
+<br/>
+<pre><code class="kotlin">fun main(args: Array&lt;String&gt;) {
+    listOf(1, 2, 3).forEach(fun() {
+        if (it &gt; 2) return
+        print(it)
+    })
+    print("ok")
+}
+</code></pre><br/>
+Единственное отличие в Котлине анонимной функции и лямбды в том, что первая ведет себя именно как функция, а значит — return будет возвращать из ближайшего «веселья» (fun). Поэтому с таким исправлением оно будет работать как надо.<br/>
+<br/>
+Чтобы было еще интереснее, я подготовил несколько примеров. В Котлине бывают разные кейворды:<br/>
+<br/>
+<ul>
+<li>fun<br/>
+</li>
+<li>inline fun<br/>
+</li>
+<li>inline fun с лямбдой noinline<br/>
+</li>
+<li>inline fun с лямбдой crossinline<br/>
+</li>
+</ul><br/>
+Некоторые из них позволяют использовать return, а некоторые — нет.<br/>
+<br/>
+<pre><code class="kotlin">package p5_sneakyReturn
+
+fun hello(block: () -&gt; Unit) = block()
+
+inline fun helloInline(block: () -&gt; Unit) = block()
+
+inline fun helloNoInline(noinline block: () -&gt; Unit) = hello(block)
+
+inline fun helloCrossInline(crossinline block: () -&gt; Unit) = runnable { block() }.run()
+
+fun main(args: Array&lt;String&gt;) {
+    hello {
+        println("hello")
+        //return - impossible
+    }
+
+    hello(fun() {
+        println("hello")
+        return
+    })
+
+    helloInline {
+        println("hello")
+        return
+    }
+
+    helloNoInline {
+        println("hello")
+        //return - impossible
+    }
+
+    helloCrossInline {
+        println("hello")
+        //return - impossible
+    }
+
+</code></pre><br/>
+Домашним заданием оставляем пожелание разобраться, что такое Crossinline. Думаю, вам это будет интересно.<br/>
+<br/>
+Когда я только начал писать на Котлине, я тоже подумал, что это нечто сложное. Но когда ты понимаешь, что такое inline-функция (почти все extension-функции для коллекции — Inline для performance), все становится очень логичным.<br/>
+<br/>
+<h2>Пазлер 6</h2><br/>
+Нам нужно получить John или Jaan. <br/>
+<br/>
+У нас есть простой класс Person. В Котлине очень удобно: можно при декларации класса сразу продекларировать конструктор. Мы получаем переменную конструктора name, забиваем ее в property. В Котлине нет field — есть только property, что очень круто, так как не нужно писать геттер, сеттеры и всякую ерунду (или геты и сеты, как в C#). Отличный красивый синтаксис.<br/>
+<br/>
+В итоге мы создаем Person с именем John и смотрим, превратится ли он у нас в эстонскую локализацию Jaan:<br/>
+<br/>
+<pre><code class="kotlin">package p6_getMeJohn
+
+class Person(name: String) {
+    var name = name
+        get() = if (name == "John") "Jaan" else name
+}
+
+println(Person("John").name)
+</code></pre><br/>
+<ul>
+<li>John<br/>
+</li>
+<li>Jaan<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+<li>ни один из вариантов<br/>
+</li>
+</ul><br/>
+Запускаем…<br/>
+<br/>
+<img src="https://lh5.googleusercontent.com/LKnA22LjVPqQ8rs7d2UJYocWIlNw4PSLphrdtRrm4RfwrZYb0Wcr4hfTq1MMgbAJZ9igCBTBmGtYmv0treL3vALgdTuIVj3UIrB5SRBw7DM0wUEKN12eHwcTINsIEWRLnkW14z6V"/><br/>
+<br/>
+Это stack overflow.<br/>
+Почему?<br/>
+Мы берем name, делаем ему if-else и вызываем его же по get. Чтобы исправить, нужно обратиться к полю, а не к property. Можно использовать кейворд field:<br/>
+<br/>
+<pre><code class="kotlin">class Person(name: String) {
+    var name = name
+        get() = if (field == "John") "Jaan" else field
+}
+</code></pre><br/>
+По кейворду field в Котлине можно обратиться к полю, но единственное место, где это можно сделать, — внутри геттера / сеттера. Все остальные обращения идут только через property — напрямую к field не обращаются.<br/>
+<br/>
+Говорят, что по перформансу все это круто, потому что Java Hotspot компилятор это хорошо оптимизирует, в отличие от виртуальных машин .NET, и все работает очень быстро.<br/>
+<br/>
+<h2>Пазлер 7</h2><br/>
+Снова смотрим на офигенную фичу языка — type inference — нас не волнует, какого типа whatAmI, мы его можем все равно использовать. Но компилятор знает, что это такое. Посмотрим, знаем ли мы.<br/>
+<br/>
+<pre><code class="kotlin">package p7_whatAmI
+
+val whatAmI = {}()
+println(whatAmI)
+</code></pre><br/>
+Какой вариант будет в итоге?<br/>
+<br/>
+<ul>
+<li>kotlin.jvm.functions.Function0<br/>
+</li>
+<li>() -&gt; kotlin.Unit<br/>
+</li>
+<li>kotlin.Unit<br/>
+</li>
+<li>ничего<br/>
+</li>
+</ul><br/>
+Запускаем… Получаем kotlin.Unit.<br/>
+<br/>
+<img src="https://lh3.googleusercontent.com/oqYu7nR1aKVRnSHjustvKH0-An0HKnB4jmtbGtg3fdJwFCw-TuA5GJuexuxuGgc8kT5r8s-7_l-3eD6IqBNo7NbWulaUGF-mNLyE4eTu2u4T1qxIHVS_pGl_jVXX0-vCZW5llsf9"/><br/>
+<br/>
+Почему?<br/>
+<br/>
+Здесь объявляется лямбда, потом происходит вызов лямбды. Так как лямбда ничего не возвращает (точнее, возвращает kotlin.Unit), именно это и выводится. А самое лучшее определение unit — это void.<br/>
+<br/>
+Откуда вообще пришел Unit? По-моему, даже в математике (или в computer science) есть такое понятие как теория типов. И там описано, что Unit — это один элемент, который означает «ничего». Поэтому некоторые более академические языки программирования используют термин Unit. Котлин был задизайнен как прагматичный язык, но, тем не менее, его разработчики решили выбрать не прагматичный void, а придумали сделать Unit. <br/>
+<br/>
+Чтобы вам было еще интереснее, в Котлине есть еще один тип: kotlin.Nothing.<br/>
+Чем они отличаются? Пусть ответ на этот вопрос будет вам домашним заданием.<br/>
+<br/>
+<h2>Пазлер 8</h2><br/>
+Мы посмотрели whatAmI, а теперь у нас будет iAmThis.<br/>
+<br/>
+Здесь все немного усложняется: у нас есть класс IAm, он — data class (это офигенная фича в Kotlin, которая за нас автоматически генерирует equal, hashCode, toString и весь этот boiler plate, который мы все так ненавидим писать на Java). В Scala это case class — там название для этого хуже, хотя на самом деле все используют его именно как data class.<br/>
+<br/>
+У класса IAm есть конструктор, в котором объявляем поле foo. Foo одновременно является property, поэтому его можно использовать с функцией hello(). <br/>
+<br/>
+Мы передаем туда String «bar», вызываем функцию hello и смотрим, что она нам возвращает.<br/>
+<br/>
+<pre><code class="kotlin">package p8_iAmThis
+
+data class IAm(var foo: String) {
+    fun hello() = foo.apply {
+        return this
+    }
+}
+
+println(IAm("bar").hello())
+</code></pre><br/>
+Что получим на выходе?<br/>
+<br/>
+<ul>
+<li>IAm<br/>
+</li>
+<li>IAm(foo=bar)<br/>
+</li>
+<li>bar<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+</ul><br/>
+Запускаем… Получаем bar<br/>
+<br/>
+<img src="https://lh6.googleusercontent.com/d-8UwdVZX0x6JVlbRySFFl4Mw0rAFqqftP2IQxOStNI6kr0_afaPylKoon4wd0JdyRC7lx330wlG5juC3EJl4TBiaUj_mpmQpDW54UFZC5aNcXkmg2WRygUr12uoUSFuky5_O3TN"/><br/>
+<br/>
+Почему?<br/>
+<br/>
+Apply — хитрая extension-функция. Она принимает лямбду и позволяет внутри нее с объектом, на котором она вызвана, выполнять какие-то действия по this. Соответственно, this — это bar. И Hello — это bar.<br/>
+<br/>
+В этом Kotlin похож на JavaScript. Как в JavaScript, в Kotlin можно достичь того состояния, когда вы уже не знаете, что такое this.<br/>
+<br/>
+Вообще там есть много полезных функций: also, let, with.<br/>
+<br/>
+<img src="https://lh4.googleusercontent.com/6wZMf3vtgMHg7cJuwwAprOpmPmn6WAg_tE0Q0zuyMopGfIZId2DmEkFJmfyqU0U7CFQDOf5X3IE_NOgLv_kLygOtxVRGZp7dutd6qeaTjmdGpq8Oj2CTTEENcrK_Visns9rO0V_5"/><br/>
+<br/>
+В принципе, они все отличаются достаточно мало.<br/>
+<br/>
+К примеру, apply — это extension-функция на абсолютно любой тип (не nullable). Она принимает лямбду, а лямбда эта очень хитрая, потому что она апплаится к внутреннему T, а не к внешнему объекту (внутри этой лямбды свой Т). Т.е. функция вызывает эту лямбду со своим this и возвращает this (это иногда тоже полезно). <br/>
+<br/>
+Есть и другие функции. Код можно исправить следующим образом:<br/>
+<br/>
+<pre><code class="kotlin">package p8_iAmThis
+
+data class IAm(var foo: String) {
+    fun hello() = foo.let {
+        return it
+    }
+}
+
+println(IAm("bar").hello())
+</code></pre><br/>
+Тогда это, может быть, станет менее непонятно.<br/>
+<br/>
+Для некоторых кейсов Apply — очень полезная функция. Но если вы очень быстро смотрите на код (и при этом используется первый вариант записи), можно запутаться.<br/>
+<br/>
+В первом варианте можно сократить код так (функция apply и сама возвращает this, поэтому ничего не меняется):<br/>
+<br/>
+<pre><code class="kotlin">data class IAm(var foo: String) {
+    fun hello() = foo.apply {
+    }
+}
+</code></pre><br/>
+<h4>Пазлер 9</h4><br/>
+Посмотрим на уже известную нам функцию let.<br/>
+<br/>
+Этот пазлер прислал Kevin Most из Канады. У него есть простая функция, которая печатает знак аргумента (Int).<br/>
+<br/>
+<pre><code class="kotlin">package p9_weirdChaining
+// by Kevin Most @kevinmost
+
+fun printNumberSign(num; Int) {
+    if (num &lt; 0) {
+        "negative"
+    }  else if (num &gt; 0) {
+        "positive"
+    } else {
+        "zero"
+    }.let { println(it) }
+}
+printNumberSign(-2)
+printNumberSign(0)
+printNumberSign(2)
+</code></pre><br/>
+Что такой код будет печатать?<br/>
+<br/>
+<ul>
+<li>negative; zero; positive<br/>
+</li>
+<li>negative; zero<br/>
+</li>
+<li>negative; positive<br/>
+</li>
+<li>zero; positive<br/>
+</li>
+</ul><br/>
+Запускаем… На выходе — zero; positive. <br/>
+<br/>
+<img src="https://lh4.googleusercontent.com/-UaPBFWIIceRkQYDZ114eahGYXbFrue7a7W7PUXsYWUE6BM95ohpQrw5GfO-UkBB6JvD9glGEL5xfShIpERbwhsrY_oUT0Wvn-qgrmPYu28bONHzm_I7ANxKdiNi4mplcZmGKH4R"/><br/>
+<br/>
+В чем же дело?<br/>
+<br/>
+If — это на самом деле выражение. То есть получается два выражения, и let применяется только ко второму.<br/>
+<br/>
+Я много писал на Kotlin, но этот пазлер сам не решил. Это какая-то адская тема. На предыдущей конференции JPoint мы даже думали, что это баг в компиляторе. Но я спросил у Андрея Бреслава, и выяснилось, что это просто нюанс парсера.<br/>
+<br/>
+Как исправить? Легко — достаточно поставить скобки:<br/>
+<br/>
+<pre><code class="kotlin">fun printNumberSign(num; Int) {
+    (if (num &lt; 0) {
+        "negative"
+    }  else if (num &gt; 0) {
+        "positive"
+    } else {
+        "zero"
+    }).let { println(it) }
+}
+</code></pre><br/>
+Тогда let применяется к результату всего выражения. А в первом случае код срабатывал так:<br/>
+<br/>
+<pre><code class="kotlin">fun printNumberSign(num; Int) {
+    if (num &lt; 0) {
+        "negative"
+    }  else (if (num &gt; 0) {
+        "positive"
+    } else {
+        "zero"
+    }).let { println(it) }
+}
+</code></pre><br/>
+При этом верхний expression идет отдельно — к нему функция let не применяется.<br/>
+Оператора elseif в Котлине нет (если бы он был, тогда бы этого пазлера бы и не было).<br/>
+<br/>
+Как и во всех пазлерах, мораль такова: не пишите такой код. Если хотите сделать что-то сложное (как здесь), обязательно поставьте скобки или положите это в переменную и потом вызовите let.<br/>
+<br/>
+<h2>Пазлер 10</h2><br/>
+Еще более интересный пазлер. Тут много кода.<br/>
+<br/>
+Этот пазлер засабмиттил Даниил Водопьян. Это пазлер на очень классную фичу в Kotlin — delegate properties. В Котлине мы можем объявить, например, что в классе есть несколько properties, и они имплементируются не как field, а как лукапы из map. <br/>
+<br/>
+У нас есть класс Population — население. А cities нам передает (var cities: Map&lt;String, Int&gt;) и мы делегируем их в этот map.<br/>
+<br/>
+Это фактически позволяет превратить Kotlin в JavaScript и делать более динамические структуры, не копировать данные туда-сюда. Такие классы сокращают очень много кода.<br/>
+<br/>
+Потом мы создаем инстанс класса Population и передаем ему для всех городов население.<br/>
+<br/>
+Теперь представим, что прошло много лет. Люди загадили Землю — улетели жить на Марс. Поэтому мы сбрасываем map с населением.<br/>
+<br/>
+Здесь есть функция with, которую мы смотрели до этого. Она берет population и ресолвит относительно него имеющиеся field-ы (в принципе, точно также, как и apply).<br/>
+<br/>
+<pre><code class="kotlin">package p10_mappedDelegates
+// by Daniil Vodopian @voddan
+
+class Population(var cities: Map&lt;String, Int&gt;) {
+    val tallinn by cities
+    val kronstadt by cities
+    val st_petersburg by cities
+}
+
+val population = Population(mapOf(
+    "st_petersburg" to 5_281_579,
+    "tallinn" to 407_947,
+    "kronstadt" to 43_005
+))
+
+// Many years have passed, now all humans live on Mars 
+population.cities = emptyMap()
+
+with(population) {
+    println("$tallinn; $kronstadt; $st_petersburg")
+}
+</code></pre><br/>
+Все легко. Осталось только понять, что станет с нашей Землей, когда все улетят на Марс. Что такой код выдаст?<br/>
+<br/>
+<ul>
+<li>0; 0; 0<br/>
+</li>
+<li>407947; 43005; 5281579<br/>
+</li>
+<li>NullPointerException<br/>
+</li>
+<li>NoSuchElementException<br/>
+</li>
+</ul><br/>
+Запускаем… Оказывается, люди никуда не исчезли (на Марсе жить очень сложно, поэтому мы, скорее всего, останемся на Земле).<br/>
+<br/>
+<img src="https://lh4.googleusercontent.com/5pX776aR3IfAQYSJGbTr4pihliEVXkrHIPTXO8WpfqzNZlKVuHxLv6psh7EB3VpzsAafICRQDvyrU6gUDRh3TXFICbdrLYIVhWqSCoR7MRcZ3yQdI25kEUrmyKuE1wAR9lDRbIWO"/><br/>
+<br/>
+Почему?<br/>
+<br/>
+Неверно сказать, что population.cities = emptyMap() сделает пустую map у класса, но не у его экземпляра. Если мы изменим код так (сделаем MutableMap и обнулим Кронштадт — population.kronstadt = 0): <br/>
+<br/>
+<pre><code class="kotlin">class Population(var cities: MutableMap&lt;String, Int&gt;) {
+    val tallinn by cities
+    var kronstadt by cities
+    val st_petersburg by cities
+}
+
+val population = Population(mutablemapOf(
+    "st_petersburg" to 5_281_579,
+    "tallinn" to 407_947,
+    "kronstadt" to 43_005
+))
+
+// Many years have passed, now all humans live on Mars 
+population.kronstadt = 0
+
+</code></pre><br/>
+Код выведет: 407947; 0; 5281579 <br/>
+<br/>
+Но обсуждаем мы все-таки первый вариант (c population.cities = emptyMap()).<br/>
+<br/>
+Когда мы исполняем delegate, ссылка на map запоминается внутри геттера (для каждого из них). И если мы меняем ссылку на cities, это уже не меняет ссылки внутри геттеров. Но мы можем даже в cities положить в map другое, и все будет работать, поскольку это все равно остается ссылка на тот же самый map. Но если мы меняем референс на другой map, то он перестает действовать.<br/>
+<br/>
+<h2>Пазлер 11</h2><br/>
+У нас в Эстонии есть отличная поговорка: «У хорошего ребенка есть много имен».<br/>
+<br/>
+Посмотрим, как это здесь относится к нашим классам.<br/>
+<br/>
+В Котлине есть такой странный нюанс: классы по умолчанию final — их нельзя проэкстендить. Есть кейворд open, который все-таки позволяет их экстендить.<br/>
+<br/>
+В этом пазлере в классе C у нас есть open-метод (тоже, чтобы мы могли его заоверрайдить). Здесь мы берем x и y (у них есть дефолтные значения — это очень классная фича в языке).<br/>
+<br/>
+У нас есть класс D, который экстендит класс C и оверрайдит функцию sum, но в принципе ничего полезного не делает, кроме того, что вызывает супер-имплементацию.<br/>
+<br/>
+Дальше у нас есть переменная d — мы создаем инстанс класса D; у нас есть переменная c и туда мы присваиваем тот же самый инстанс (получаем 2 референса на один и тот же инстанс класса D). И мы вызываем один и тот же метод по сути на одном и том же объекте.<br/>
+<br/>
+<pre><code class="kotlin">package p11_goodChildHasManyNames
+
+open class C {
+  open fun sum(x: Int = 1, y: Int = 2): Int = x + y
+}
+
+class D : C() {
+  override fun sum(y: Int, x: Int): Int = super.sum(x, y)
+}
+
+val d: D = D()
+val c: C = d
+print(c.sum(x = 0))
+print(d.sum(x = 0))
+println()
+</code></pre><br/>
+Что получим в итоге?<br/>
+<br/>
+<ul>
+<li>22<br/>
+</li>
+<li>11<br/>
+</li>
+<li>21<br/>
+</li>
+<li>не скомпилируется<br/>
+</li>
+</ul><br/>
+Запускаем… Правильный ответ — 21.<br/>
+<br/>
+<img src="https://lh3.googleusercontent.com/VBWW7gv1YxARynejzTsKPQagt8YUiftZamOQx-VkLn_voW0acN4BTh5IJssvXKa0qodgORQ-7AUZNZbCHZzFfMi_lOF4s1Ez7q2li66f7PYZ-_BZxcyR-n5G5mLeVMsIzelj-GuX"/><br/>
+<br/>
+Здесь еще есть некоторые warning-и, которые помогают понять, что происходит.<br/>
+<br/>
+В обоих случая вызывается переопределенная функция, потому что полиморфизм. В рантайме выбирается, какая функция вызывается, потому что в реальности и c, и d — это инстанс класса D. Но так как у JVM нет такой фичи, как именные параметры, их ресолвит компилятор от compile-time. Т.е. получается, что функция выбирается и вызывается в рантайме, а параметры выбираются в compile-time. Поэтому какие параметры он подставляет, зависит от типа переменной, а не объекта, получающегося в рантайме. Это косяк. Warning-и предупреждают, что не следует путать свои названия — когда вы оверрайдите функцию, ее надо назвать иначе.<br/>
+<br/>
+Хорошая новость в том, что примерно для половины представленных пазлеров в IDEA уже есть warning. Благодаря тому, что JetBrains сами занимаются еще и инструментами, они достаточно хорошо помогают избегать многих ошибок. Но не всех. Для некоторых из пазлеров warning сделать попросту невозможно.<br/>
+<br/>
+Однако язык развивается. В 2016 году, когда я только начал на нем писать, было гораздо меньше инспекций в IDEA и гораздо проще было эти пазлеры самому схлопотать. Сейчас ситуация совсем другая: вышла версия 1.1, было много патч-релизов, много инспекций добавлено в IDEA, и на Котлине писать правильно теперь очень легко.<br/>
+<br/>
+Вместо заключения хочу сказать: переходите на Kotlin.<br/>
+<br/>
+<ul>
+<li>Под Android до сих пор нет нормальной Java 8, а в Котлине вы получаете все фичи Java 8 и даже еще больше. Можно гораздо лучше себя выражать.<br/>
+</li>
+<li>Котлин — язык без большого хайпа. Это тоже его плюс. <br/>
+</li>
+<li>Его часто называют «Swift» для Android. Но со Swift есть небольшая проблема — когда выходит новая версия, приходится постоянно переписывать весь код. С Котлиным такой проблемы нет — нам обещают обратную совместимость, как и source-level, так и binary-level.<br/>
+</li>
+<li>Kotlin компилируется гораздо быстрее, чем Scala. Он гораздо проще Scala.<br/>
+</li>
+<li>Он гораздо быстрее в рантайме, чем Groovy. Если вы добавляете свое приложение на Android, то размер по-моему увеличивается всего на 600 Кб по сравнению с Java — и это очень мало по сравнению со Scala. Поэтому есть смысл на нем писать.<br/>
+</li>
+<li>Когда я на него перешел, я начал быть продуктивным уже с первого дня.<br/>
+</li>
+<li>Про Kotlin говорят, что это «более хороший Groovy», там есть хорошие фичи.<br/>
+</li>
+<li>И ваш самый главный друг в IDEA — это Ctrl+Alt+Shift+K, который сконвертирует любой класс Java сразу в Kotlin (as is). При этом нет Ctrl+Alt+Shift+J, поэтому вы не можете уже вернуться — это дорога в один конец. Да вы и не захотите возвращаться.<br/>
+</li>
+<li>Также переходит Gradle.<br/>
+</li>
+</ul><br/>
+Присылайте нам новые пазлеры, чтобы мы могли повеселиться на следующих конференциях.<br/>
+<br/>
+<hr/><br/>
+Если любите нутрянку программирования так же, как и мы, и хотите основательнее погрузиться в Kotlin, рекомендуем обратить внимание вот на эти доклады, которые будут на грядущей конференции <a href="https://mobiusconf.com/">Mobius 2017 Moscow</a>:<br/>
+<ul>
+<li><a href="https://mobiusconf.com/2017/msk/talks/jslrnocqzieusmswmg0w0/">Пишем Java-френдли Kotlin-код</a> (Сергей Рябов, Independent)<br/>
+</li>
+<li><a href="https://mobiusconf.com/2017/msk/talks/7tt1i72eu0wkyywykuuuuw/">Data Binding in a Kotlin world</a> (Lisa Wray, New York Times)<br/>
+</li>
+<li><a href="https://mobiusconf.com/2017/msk/talks/4iprilrwsawge2e488yeis/">Универсальные ссылки — дворец из подводных камней</a> (Константин Якушев, Badoo)<br/>
+</li>
+</ul></div></div></div><!----><!----></div><!----><!----></div><!--]--><!----><div class="tm-article-presenter__meta" data-test-id="article-meta-links"><div class="tm-separated-list tm-article-presenter__meta-list"><span class="tm-separated-list__title">Теги:</span><ul class="tm-separated-list__list"><!--[--><li class="tm-separated-list__item"><!--[--><a href="/ru/search/?target_type=posts&amp;order=relevance&amp;q=[kotlin]" class="tm-tags-list__link"><span>kotlin</span></a><!--]--></li><li class="tm-separated-list__item"><!--[--><a href="/ru/search/?target_type=posts&amp;order=relevance&amp;q=[%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5]" class="tm-tags-list__link"><span>программирование</span></a><!--]--></li><li class="tm-separated-list__item"><!--[--><a href="/ru/search/?target_type=posts&amp;order=relevance&amp;q=[%D0%BF%D0%B0%D0%B7%D0%BB%D0%B5%D1%80]" class="tm-tags-list__link"><span>пазлер</span></a><!--]--></li><li class="tm-separated-list__item"><!--[--><a href="/ru/search/?target_type=posts&amp;order=relevance&amp;q=[%D0%BA%D0%B5%D0%BA%D1%81]" class="tm-tags-list__link"><span>кекс</span></a><!--]--></li><!--]--><!----></ul></div><div class="tm-separated-list tm-article-presenter__meta-list"><span class="tm-separated-list__title">Хабы:</span><ul class="tm-separated-list__list"><!--[--><li class="tm-separated-list__item"><!--[--><a href="/ru/companies/jugru/articles/" class="tm-hubs-list__link"><!--[--><span>Блог компании JUG Ru Group</span><!--]--></a><!--]--></li><li class="tm-separated-list__item"><!--[--><a href="/ru/hubs/kotlin/" class="tm-hubs-list__link"><!--[--><span>Kotlin</span><!--]--></a><!--]--></li><li class="tm-separated-list__item"><!--[--><a href="/ru/hubs/programming/" class="tm-hubs-list__link"><!--[--><span>Программирование</span><!--]--></a><!--]--></li><!--]--><!----></ul></div></div><!----><!--]--></article><!--]--></div><!----></div><div style="" class="tm-article-sticky-panel" data-test-id="article-sticky-panel"><div class="tm-data-icons tm-data-icons tm-data-icons_space-big tm-article-sticky-panel__icons" data-test-id="article-stats-icons"><div class="tm-article-rating tm-data-icons__item"><div class="tm-votes-meter tm-article-rating__votes-switcher"><svg class="tm-svg-img tm-votes-meter__icon tm-votes-meter__icon tm-votes-meter__icon_appearance-article" height="24" width="24"><title>Всего голосов 27: ↑24 и ↓3</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#counter-rating"></use></svg><span class="tm-votes-meter__value tm-votes-meter__value_positive tm-votes-meter__value_appearance-article tm-votes-meter__value_rating tm-votes-meter__value" data-test-id="votes-meter-value" title="Всего голосов 27: ↑24 и ↓3">+21</span></div><!--teleport start--><!--teleport end--><!----></div><!----><!----><button class="bookmarks-button tm-data-icons__item" title="Добавить в закладки" type="button"><span class="tm-svg-icon__wrapper bookmarks-button__icon"><svg class="tm-svg-img tm-svg-icon" height="24" width="24"><title>Добавить в закладки</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#counter-favorite"></use></svg></span><span class="bookmarks-button__counter" title="Количество пользователей, добавивших публикацию в закладки">73</span></button><div class="tm-sharing tm-data-icons__item" title="Поделиться"><button class="tm-sharing__button" type="button"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tm-sharing__icon"><path fill="currentColor" d="M13.8 13.8V18l7.2-6.6L13.8 5v3.9C5 8.9 3 18.6 3 18.6c2.5-4.4 6-4.8 10.8-4.8z"></path></svg></button><!--teleport start--><!--teleport end--></div><div class="tm-article-comments-counter-link tm-data-icons__item" title="Читать комментарии"><a href="/ru/companies/jugru/articles/338924/comments/" class="tm-article-comments-counter-link__link" data-test-id="counter-comments"><!--[--><svg class="tm-svg-img tm-article-comments-counter-link__icon" height="24" width="24"><title>Комментарии</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value">24</span><!--]--></a><!----></div><!--[--><!--[--><!--[--><!----><!--]--><!--]--><!--]--><!--teleport start--><!--teleport end--><!----></div></div></div><!--[--><!--]--><div class="tm-article-presenter__footer"><!--[--><!--[--><div class="tm-article-blocks"><!----><!--[--><section class="tm-block tm-block tm-block_spacing-bottom"><!----><!--[--><div class="tm-block__body tm-block__body tm-block__body_variant-balanced"><!--[--><div class="tm-article-author" data-test-id="article-author-info" data-async-called="true"><!--[--><!--[--><div class="tm-article-author__company"><div class="tm-article-author__company-card"><div class="tm-company-snippet"><a href="/ru/companies/jugru/profile/" class="tm-company-snippet__logo-link"><div class="tm-entity-image"><img alt="" class="tm-entity-image__pic" height="40" src="//habrastorage.org/getpro/habr/company/0a7/ce6/a86/0a7ce6a86556ff20579e90e6b732e663.png" width="40"></div></a><div class="tm-company-snippet__info"><a href="/ru/companies/jugru/profile/" class="tm-company-snippet__title" data-test-id="company-title"><span>JUG Ru Group</span></a><div class="tm-company-snippet__description">Конференции для Senior-разработчиков</div></div></div><div class="tm-article-author__buttons"><!----><!----></div></div><div class="tm-article-author__company-contacts"><!--[--><a class="tm-article-author__contact" href="http://jugru.org" rel="noopener" target="_blank">Сайт</a><a class="tm-article-author__contact" href="https://vk.com/jugrugroup" rel="noopener" target="_blank">ВКонтакте</a><a class="tm-article-author__contact" href="https://telegram.me/JUGruSupport" rel="noopener" target="_blank">Telegram</a><!--]--></div><div class="tm-article-author__separator"></div></div><!--]--><!--]--><div class="tm-user-card tm-user-card tm-user-card_variant-article tm-article-author__user-card" data-async-called="true"><div class="tm-user-card__info-container"><div class="tm-user-card__header"><div class="tm-user-card__header-data"><a href="/ru/users/BigSolarWolf/" class="tm-user-card__userpic tm-user-card__userpic_size-40"><div class="tm-entity-image"><img alt="" class="tm-entity-image__pic" src="//habrastorage.org/getpro/habr/avatars/230/68b/e18/23068be18d21e5c15af2a2c055e31869.jpg"></div></a><div class="tm-user-card__meta"><div class="tm-counter-container tm-karma tm-karma" title=" 21 голос "><div class="tm-counter-container__header"><!--[--><div class="karma-display positive" data-v-7635202e>15</div><!----><!--]--></div><div class="tm-counter-container__footer"><!--[--><div class="tm-karma__text">Карма</div><!--teleport start--><!--teleport end--><!--]--></div></div><div class="tm-counter-container" title="Рейтинг пользователя"><div class="tm-counter-container__header"><!--[--><!--[--><!--]--><div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating"><!----><div class="tm-votes-lever__score tm-votes-lever__score_appearance-rating tm-votes-lever__score"><!--[--><span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter_rating tm-votes-lever__score-counter" data-test-id="votes-score-counter">0</span></span><!--]--></div><!----></div><!--]--></div><div class="tm-counter-container__footer"><!--[--><span class="tm-rating__text tm-rating__text">Рейтинг</span><!--]--></div></div></div></div></div><div class="tm-user-card__info tm-user-card__info_variant-article tm-user-card__info"><div class="tm-user-card__title tm-user-card__title_variant-article tm-user-card__title"><span class="tm-user-card__name tm-user-card__name_variant-article tm-user-card__name">Алексей Городищев</span><a href="/ru/users/BigSolarWolf/" class="tm-user-card__nickname tm-user-card__nickname tm-user-card__nickname_variant-article"> @BigSolarWolf</a><!----></div><p class="tm-user-card__short-info tm-user-card__short-info_variant-article tm-user-card__short-info" data-test-id="user-card-speciality">Консультант по невозможным ситуациям</p></div></div><!----><div class="tm-user-card__buttons tm-user-card__buttons_variant-article tm-user-card__buttons"><!----><div class="tm-user-card__button"><div class="tm-button-follow tm-user-card__button-follow"><!----><button class="tm-button-follow__button tm-button-follow__button_big" data-test-id="follow-button" type="button">Подписаться</button></div></div><!----><div class="tm-user-card__button tm-user-card__button_write" data-test-id="user-card-conversations"><svg class="tm-svg-img tm-user-card__button-icon" height="16" width="16"><title>Отправить сообщение</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#mail"></use></svg></div><!----></div><!----></div><div class="tm-article-author__user-contacts" data-test-id="author-contacts"><!----><!----><!----></div></div><!--]--></div><!--]--><!----></section><!----><!--[--><!--]--><!--]--><div class="tm-article-blocks__comments"><div id="publication-comments" class="tm-article-page-comments"><div><!--[--><div class="tm-article-comments-counter-link tm-article-comments-counter-button"><a href="/ru/companies/jugru/articles/338924/comments/" class="tm-article-comments-counter-link__link tm-article-comments-counter-link__link_button-style" data-test-id="counter-comments"><!--[--><svg class="tm-svg-img tm-article-comments-counter-link__icon tm-article-comments-counter-link__icon_contrasted" height="24" width="24"><title>Комментарии</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#counter-comments"></use></svg><span class="tm-article-comments-counter-link__value tm-article-comments-counter-link__value_contrasted"> Комментарии 24 </span><!--]--></a><!----></div><!--]--></div></div></div><!--[--><!--[--><!--]--><section class="tm-block tm-block tm-block_spacing-bottom"><header class="tm-block__header tm-block__header tm-block__header_variant-borderless"><div class="tm-block__header-container"><h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2><!--[--><!--]--></div><!----></header><!--[--><div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim"><!--[--><!--[--><div class="tm-tabs tm-tabs"><div class=""><!--[--><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim tm-tabs__tab-link">Лучшие за сутки</button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link_slim tm-tabs__tab-link">Похожие</button></span><!--]--></div><!----></div><div class="similar-and-daily__tab-view"><div class="placeholder-wrapper"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="tm-placeholder-article-cards"><!--[--><div class="tm-placeholder-article-card"><div class="tm-placeholder__user"><div class="tm-placeholder__user-pic loads"></div><div class="tm-placeholder__user-date loads"></div></div><div class="tm-placeholder-article-card__title"><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div></div><div class="tm-placeholder-article-card__icons tm-placeholder__counters"><!--[--><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><!--]--></div></div><div class="tm-placeholder-article-card"><div class="tm-placeholder__user"><div class="tm-placeholder__user-pic loads"></div><div class="tm-placeholder__user-date loads"></div></div><div class="tm-placeholder-article-card__title"><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div></div><div class="tm-placeholder-article-card__icons tm-placeholder__counters"><!--[--><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><!--]--></div></div><div class="tm-placeholder-article-card"><div class="tm-placeholder__user"><div class="tm-placeholder__user-pic loads"></div><div class="tm-placeholder__user-date loads"></div></div><div class="tm-placeholder-article-card__title"><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div></div><div class="tm-placeholder-article-card__icons tm-placeholder__counters"><!--[--><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><!--]--></div></div><div class="tm-placeholder-article-card"><div class="tm-placeholder__user"><div class="tm-placeholder__user-pic loads"></div><div class="tm-placeholder__user-date loads"></div></div><div class="tm-placeholder-article-card__title"><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div></div><div class="tm-placeholder-article-card__icons tm-placeholder__counters"><!--[--><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><!--]--></div></div><div class="tm-placeholder-article-card"><div class="tm-placeholder__user"><div class="tm-placeholder__user-pic loads"></div><div class="tm-placeholder__user-date loads"></div></div><div class="tm-placeholder-article-card__title"><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div><div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div></div><div class="tm-placeholder-article-card__icons tm-placeholder__counters"><!--[--><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><div class="tm-placeholder-data-icon"><div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div><div class="tm-placeholder__line tm-placeholder__line_icon-text"></div></div><!--]--></div></div><!--]--></div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><!----></div><!--]--><!--]--></div><!--]--><!----></section><!--[--><!--[--><div class="placeholder-wrapper"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="tm-placeholder-inset tm-placeholder-vacancies"><div class="tm-placeholder-inset__header"><div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div></div><div class="tm-placeholder-inset__body"><ul class="tm-placeholder-list"><!--[--><li class="tm-placeholder-list__item tm-placeholder-list__item_inset"><div class="tm-placeholder-list__title-container"><div class="tm-placeholder__line tm-placeholder__line_item-title loads"></div></div><div class="tm-project-block-items__properties"><!--[--><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><!--]--></div></li><li class="tm-placeholder-list__item tm-placeholder-list__item_inset"><div class="tm-placeholder-list__title-container"><div class="tm-placeholder__line tm-placeholder__line_item-title loads"></div></div><div class="tm-project-block-items__properties"><!--[--><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><!--]--></div></li><li class="tm-placeholder-list__item tm-placeholder-list__item_inset"><div class="tm-placeholder-list__title-container"><div class="tm-placeholder__line tm-placeholder__line_item-title loads"></div></div><div class="tm-project-block-items__properties"><!--[--><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><!--]--></div></li><li class="tm-placeholder-list__item tm-placeholder-list__item_inset"><div class="tm-placeholder-list__title-container"><div class="tm-placeholder__line tm-placeholder__line_item-title loads"></div></div><div class="tm-project-block-items__properties"><!--[--><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><!--]--></div></li><li class="tm-placeholder-list__item tm-placeholder-list__item_inset"><div class="tm-placeholder-list__title-container"><div class="tm-placeholder__line tm-placeholder__line_item-title loads"></div></div><div class="tm-project-block-items__properties"><!--[--><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><span class="tm-project-block-items__property-item"><span class="tm-placeholder__line loads" style="width:100px;"></span></span><!--]--></div></li><!--]--></ul></div><div class="tm-placeholder-inset__footer"><div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div></div></div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><!--]--><!--]--><!----><!--[--><!--]--><!--]--></div><!--]--><!--]--></div></div><!--]--><!--]--></div></div><div class="tm-page__sidebar"><!--[--><!----><!--]--></div></div><!----><!--]--></div></div></main><!----></div><!----><div class="tm-footer"><div class="tm-page-width"><!--[--><div class="tm-footer__container"><div class="tm-footer__title"><a class="tm-svg-icon__wrapper tm-footer__title-link" href="/ru/"><svg class="tm-svg-img tm-svg-icon" height="16" width="16"><title>Хабр</title><use xlink:href="/img/habr-logo-ru.svg#logo"></use></svg></a></div><div class="tm-footer__social"><!--[--><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://www.facebook.com/habrahabr.ru" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>Facebook</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-facebook"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://twitter.com/habr_com" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>Twitter</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-twitter"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://vk.com/habr" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>VK</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-vk"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://telegram.me/habr_com" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>Telegram</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-telegram"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://www.youtube.com/channel/UCd_sTwKqVrweTt4oAKY5y4w" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>Youtube</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-youtube"></use></svg></a><a class="tm-svg-icon__wrapper tm-social-icons__icon" href="https://dzen.ru/habr" rel="nofollow noopener noreferrer" target="_blank"><svg class="tm-svg-img tm-svg-icon" height="36" width="36"><title>Яндекс Дзен</title><use xlink:href="/img/new-social-icons-sprite.svg#social-logo-dzen"></use></svg></a><!--]--></div><!--teleport start--><!--teleport end--><button class="tm-footer__link"><svg class="tm-svg-img tm-footer__icon" height="16" width="16"><title>Язык</title><use xlink:href="/img/megazord-v28.371b7fa3..svg#lang"></use></svg> Настройка языка</button><a href="/ru/feedback/" class="tm-footer__link">Техническая поддержка</a><div class="tm-footer-copyright"><span class="tm-copyright"><span class="tm-copyright__years">© 2006–2025, </span><span class="tm-copyright__name"><a class="tm-copyright__link" href="https://company.habr.com/" rel="noopener" target="_blank">Habr</a></span></span></div></div><!--]--></div></div><!----><!--]--></div><!----></div><script>window.__INITIAL_STATE__={"adblock":{"hasAcceptableAdsFilter":false,"hasAdblock":false},"articlesList":{"articlesList":{"338924":{"id":"338924","timePublished":"2017-09-29T07:42:17+00:00","isCorporative":true,"lang":"ru","titleHtml":"Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?","leadData":{"textHtml":"Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin, «более лучшую» Java, универсальный язык, понятный, мощный и прозрачный. \u003Cbr\u002F\u003E\r\n\u003Cbr\u002F\u003E\r\nВ свое время Андрей \u003Ca href=\"https:\u002F\u002Fhabr.com\u002Fru\u002Fusers\u002Fabreslav\u002F\" class=\"user_link\"\u003Eabreslav\u003C\u002Fa\u003E Бреслав говорил, что Kotlin разрабатывался как удобный и предсказуемый язык. Тогда же прозвучало мнение, что в этом языке вы не найдете паззлеров (коротких кусочков кода, результаты выполнения которых оказываются неожиданными, пугающими или разочаровывающими). Ну что же, Антон \u003Ca href=\"https:\u002F\u002Fhabr.com\u002Fru\u002Fusers\u002Fantonkeks\u002F\" class=\"user_link\"\u003Eantonkeks\u003C\u002Fa\u003E Кекс поколдовал в IDEA и кое-что все-таки накопал, да еще на наглядных примерах рассказал о своих находках в паре с Филиппом Кексом. Смотрите сами:\u003Cbr\u002F\u003E\r\n\u003Cbr\u002F\u003E\r\n\u003Cdiv class=\"oembed\"\u003E\u003Cdiv\u003E\u003Cdiv style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;\"\u003E\u003Ciframe src=\"https:\u002F\u002Fwww.youtube.com\u002Fembed\u002FmKnY_uI3Z9Q?rel=0&amp;showinfo=1\" style=\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\" allowfullscreen scrolling=\"no\"\u003E\u003C\u002Fiframe\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\r\n\u003Cbr\u002F\u003E\r\nПод катом — подборка таких паззлеров и развернутые комментарии к ним. В основе материала доклад Антона Кекса (Codeborne) и Филиппа Кекса (Creative mobile) на конференции \u003Ca href=\"http:\u002F\u002F2017.mobiusconf.com\u002F\"\u003EМобиус 2017 (Санкт-Петербург)\u003C\u002Fa\u003E.\u003Cbr\u002F\u003E\r\n","imageUrl":null,"buttonTextHtml":null,"image":null},"editorVersion":"1.0","postType":"article","postLabels":[],"author":{"id":"1434702","alias":"BigSolarWolf","fullname":"Алексей Городищев","avatarUrl":"\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Favatars\u002F230\u002F68b\u002Fe18\u002F23068be18d21e5c15af2a2c055e31869.jpg","speciality":"Консультант по невозможным ситуациям","scoreStats":{"score":15,"votesCount":21},"rating":0,"relatedData":null,"contacts":[],"authorContacts":[],"paymentDetails":{"paymentYandexMoney":null,"paymentPayPalMe":null,"paymentWebmoney":null},"donationsMethod":null,"isInBlacklist":null,"careerProfile":null},"statistics":{"commentsCount":24,"favoritesCount":73,"readingCount":13820,"score":21,"votesCount":27,"votesCountPlus":24,"votesCountMinus":3},"hubs":[{"id":"18226","alias":"jugru","type":"corporative","title":"Блог компании JUG Ru Group","titleHtml":"Блог компании JUG Ru Group","isProfiled":false,"relatedData":null},{"id":"19441","alias":"kotlin","type":"collective","title":"Kotlin","titleHtml":"Kotlin","isProfiled":true,"relatedData":null},{"id":"359","alias":"programming","type":"collective","title":"Программирование","titleHtml":"Программирование","isProfiled":true,"relatedData":null}],"flows":[{"id":"1","alias":"develop","title":"Разработка","titleHtml":"Разработка"}],"relatedData":{"vote":null,"unreadCommentsCount":0,"bookmarked":false,"canComment":false,"canEdit":false,"canViewVotes":false,"votePlus":{"canVote":false,"isChargeEnough":false,"isKarmaEnough":false,"isVotingOver":true,"isPublicationLimitEnough":false},"voteMinus":{"canVote":false,"isChargeEnough":false,"isKarmaEnough":false,"isVotingOver":true,"isPublicationLimitEnough":false},"canModerateComments":false,"trackerSubscribed":false,"emailSubscribed":false},"textHtml":"\u003Cdiv xmlns=\"http:\u002F\u002Fwww.w3.org\u002F1999\u002Fxhtml\"\u003EВначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin, «более лучшую» Java, универсальный язык, понятный, мощный и прозрачный. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ свое время Андрей \u003Ca href=\"https:\u002F\u002Fhabr.com\u002Fru\u002Fusers\u002Fabreslav\u002F\" class=\"user_link\"\u003Eabreslav\u003C\u002Fa\u003E Бреслав говорил, что Kotlin разрабатывался как удобный и предсказуемый язык. Тогда же прозвучало мнение, что в этом языке вы не найдете паззлеров (коротких кусочков кода, результаты выполнения которых оказываются неожиданными, пугающими или разочаровывающими). Ну что же, Антон \u003Ca href=\"https:\u002F\u002Fhabr.com\u002Fru\u002Fusers\u002Fantonkeks\u002F\" class=\"user_link\"\u003Eantonkeks\u003C\u002Fa\u003E Кекс поколдовал в IDEA и кое-что все-таки накопал, да еще на наглядных примерах рассказал о своих находках в паре с Филиппом Кексом. Смотрите сами:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cdiv class=\"oembed\"\u003E\u003Cdiv\u003E\u003Cdiv style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;\"\u003E\u003Cdiv class=\"tm-iframe_temp\" data-src=\"https:\u002F\u002Fwww.youtube.com\u002Fembed\u002FmKnY_uI3Z9Q?rel=0&amp;showinfo=1\" data-style=\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\" id=\"\" width=\"\"\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПод катом — подборка таких паззлеров и развернутые комментарии к ним. В основе материала доклад Антона Кекса (Codeborne) и Филиппа Кекса (Creative mobile) на конференции \u003Ca href=\"http:\u002F\u002F2017.mobiusconf.com\u002F\"\u003EМобиус 2017 (Санкт-Петербург)\u003C\u002Fa\u003E.\u003Cbr\u002F\u003E\n\u003Ca name=\"habracut\"\u003E\u003C\u002Fa\u003E\u003Cbr\u002F\u003E\nНачнем с Котлина. Все говорят, что на Яве куча проблем: на острове куча вулканов, там землетрясения. Ее нужно спасать.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cdiv style=\"text-align:center;\"\u003E\u003Cimg src=\"https:\u002F\u002Fhabrastorage.org\u002Fr\u002Fw780q1\u002Fwebt\u002F59\u002Fcc\u002Ff5\u002F59ccf540452ce749063272.jpeg\" data-src=\"https:\u002F\u002Fhabrastorage.org\u002Fwebt\u002F59\u002Fcc\u002Ff5\u002F59ccf540452ce749063272.jpeg\" data-blurred=\"true\"\u002F\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\nПоэтому на ум приходит другой остров — Котлин. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cdiv style=\"text-align:center;\"\u003E\u003Cimg src=\"https:\u002F\u002Fhabrastorage.org\u002Fr\u002Fw780q1\u002Fwebt\u002F59\u002Fcd\u002F00\u002F59cd0075db1af556127505.jpeg\" data-src=\"https:\u002F\u002Fhabrastorage.org\u002Fwebt\u002F59\u002Fcd\u002F00\u002F59cd0075db1af556127505.jpeg\" data-blurred=\"true\"\u002F\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\nТам спокойно, ничего не происходит. Он очень плоский, никаких вулканов. Находится здесь рядом. Поэтому Kotlin — это спаситель Java, особенно для Android-разработчиков — таких, как мы.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EНесколько слов о Котлине\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nЧто такое Kotlin, здесь более-менее все знают. Потому что какой дурак сегодня пишет под Android без Котлина? Это, мне кажется, уже мазохизм. Он отлично работает. Пару недель назад вышел первый билд Kotlin native. Скоро, может быть, будем и под iOS писать на Котлине.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭто прагматический язык, open-source, очень прикольный тулинг — он был задизайнен, чтобы хорошо работала IDE. Это камень в огород Apple-овского языка Swift и ему подобных. JetBrains хорошо push-ит Kotlin — специально дизайнит язык под свою IDE.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВсе мы знаем, что Kotlin очень долго разрабатывался. Прошло шесть лет, прежде чем была выпущена версия 1.0. JetBrains очень старались, но, видимо, сделать новый язык не так просто. За прошедшие годы (2010 — 2016) они даже успели поменять логотип на более современный.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cdiv style=\"text-align:center;\"\u003E\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002F37SoO6N7fN7BcBu97cTV1WEBOJd0lscvUJ-XSdutXicmCmhxUbkJzfY4h4M9blI5bJU7BOcZdZ7mIQHa7MnEIAPwCE6bBIeaJ5NDZ139drh3zzX1i6-xkS723oscI4F5kFigMD_C\"\u002F\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\nУчитывая, как долго его разрабатывали, язык должен быть превосходный. Это должен быть самый лучший язык в мире, так как многие другие языки девелопились гораздо быстрее. Например, всем известно, что JavaScript был сделан за две недели. Хотя, это, конечно, не rocket science (rocket science — это SpaceX, которые за четыре года научились садиться на платформу на настоящей ракете). \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nИ самое главное — вы все должны гордиться, потому что Kotlin разрабатывается в Петербурге, и это один из немногих русских языков программирования. Старые русские языки программирования выглядели приблизительно вот так (справа):\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cdiv style=\"text-align:center;\"\u003E\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002FWP8Yhn3idbYugo-kFXWpcojPQ2dyWzF3jjTh-TehQUgOd2t3NLD8EB7J_J2WoAr1Nh3wsaDfui8ksjguyAP2Iww8dBU-o_-qdJh2lD8wg28ar5GGhgE9DT-1BBxJfybUpYrgtagn\"\u002F\u003E\u003C\u002Fdiv\u003E\u003Cbr\u002F\u003E\nК счастью, этот язык был ориентирован на международную аудиторию, поэтому вместо кейворда «фу» его создатели все-таки решили использовать кейворд fun, над которым все «making fun». Так что это веселый язык.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлеры\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nЧто такое пазлеры? \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭто короткие программы, написанные на Котлине, с интересным поведением. А вы будете угадывать, что они печатают. Вы будете голосовать за предложенные варианты ответа, а тот, кто первый поднимет руку и не только угадает правильный вариант, но и объяснит, почему так происходит, получит приз.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПервая половина пазлеров ориентирована на тех, кто не очень хорошо знаком с Kotlin; вторая половина — для хардкорных Kotlin-разработчиков.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nKotlin известен тем, что не повторяет некоторые известные пазлеры Java. Однако в идеальном языке программирования не должно быть пазлеров вообще. Получается, что и Kotlin не идеален — не бывает идеальных языков.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНо Kotlin уже взлетел во многих мобильных приложениях. Этот язык создавался как прагматичный и удобный во многих кейсах. Он удобен в том числе с точки зрения юзабилити. И он все еще развивается. С разработчиками Котлина можно беседовать и пытаться договориться, как и чего исправить.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВсе демонстрируемые пазлеры запускаются с Kotlin 1.1.1 — с последней стабильной версией. Исходные коды пазлеров находятся на GitHub — потом их можно посмотреть: \u003Ca href=\"https:\u002F\u002Fgithub.com\u002Fangryziber\u002Fkotlin-puzzlers\u002Ftree\u002Fmobius\"\u003Ehttps:\u002F\u002Fgithub.com\u002Fangryziber\u002Fkotlin-puzzlers\u002Ftree\u002Fmobius\u003C\u002Fa\u003E.\u003Cbr\u002F\u003E\nУ кого появятся идеи новых пазлеров, присылайте pull-реквесты. Ждем.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 1\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nКотлин хорош тем, что он поддерживает nullability, точнее, он null safe — можно так сказать.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p1_nullean\n\nval s: String? = null\nif (s?.isEmpty()) println(\"true\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nУ него есть различия между nullable и не nullable типами. Это значит, если мы хотим присвоить куда-то null, это должен быть nullable-тип (с вопросиком). Вероятно, эту идею предложил C#, но он ее не доделал — там только примитивы могут быть nullable. А в Котлине это уже сделано нормально для всех типов. В принципе, язык рассчитан на то, чтобы никогда вы не получали страшных NullPointerException в рантайме. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ данном примере Котлин перенял из Groovy отличный null-safe оператор s?, который позволяет на нуле вызвать какой-то метод и не схлопотать сразу в рантайме какие-то эксепшены. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nДавайте посмотрим, какой из возможных вариантов мы сейчас получим:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Enothing\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Etrue\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003ENullPointerException\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EWill not compile\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем. Смотрим.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh6.googleusercontent.com\u002FJGYbC654gXHBv14QAoBU0kFGozc9j7Yi2WNpME0ypFM_jMzDlaxs5xdySKmJs2FYthZYo87oRlHq1_53v_af9HdhUz_6wNy8IOwt9g6Tpp3N0AkhlLDIqKEuDh-T2fi-bxWW67-e\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНе скомпилировалось.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКотлин — type safe язык, поэтому результат выражения s?.isEmpty() — null, поэтому он не кастится в false.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nИсправить легко (надо написать так, чтобы Котлин вел себя так же, как Groovy):\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eif (s?.isEmpty() ?: false) println(\"true\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЭто не очень красиво, но сейчас так. В котлиновский трекер уже засабмичено предложение все-таки интерпретировать null как false, но там есть свои нюансы. Еще неизвестно, получим мы эту фичу когда-нибудь или нет. Есть разные мнения, но с точки зрения удобства использования языка это небольшой косяк.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 2\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nПазлер очень похожий: у нас та же переменная nullable string и мы на нем пытаемся вызвать метод.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p2_nulleanExtended\nval x: String? = null\nprint(x.isNullOrEmpty())\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nКакой будет результат?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Etrue\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Efalse\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003ENullPointerException\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… \u003Cbr\u002F\u003E\nОтвет: true.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh3.googleusercontent.com\u002FAhQlqjO4NSlNx7shhCyL_ODySv17Qt2bijf9saRWY8v4DIz97yf7QAMU9HaFYzWID5O6nKtUYBA6BaevowqigpbzY4UKL5baIE_-xvuRpQXjW5TPrCkobI8QEIITIxS7tffiI5Pv\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему? Это extension-функция из стандартной библиотеки Kotlin, которая «повешена» на nullable CharSequence. Поэтому в подобном кейсе она обрабатывается нормально.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002FGd30D7U6yYx9mUXngNs8-11oKBza7MH4Z8CgGFq6Ik9bDU9u0sCSzZK9D-7pKT9nNlCGMCHVD9axVIZy--POT0B5ibeeRCBq1fM2VrZMtP6RrvC_3v9NwZcytYe-zCL7Om2eEzOA\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nДействительно, в Котлине можно некоторые функции запускать на null. Компилятор про это знает и позволяет это делать.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЕсли бы мы поставили знак вопроса, IDEA бы нам сказала, что он тут не нужен.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eprint(x?.isNullOrEmpty())\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nХорошо, что функция названа по-человечески (о результате можно догадаться по названию).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЕсли запустить во втором варианте (со знаком вопроса), результат будет null, потому что выражение в скобках теперь приводится в null, и тогда эта функция не вызывается, несмотря на то, что она поддерживает null. Это, кстати, еще один пазлер.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 3\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p3_platformNulls\n\nclass Kotlin {\n    fun hello(name: String) = print(\"Hello $name\")\n}\n\nfun main(args: Array&lt;String&gt;) {\n    val prop = System.getProperty(\"key\")\n    Kotlin().hello(prop)\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nВ Котлине есть такая интересная фича — третий стейт nullability. Посмотрим, что будет, если мы вызовем:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eval prop = System.getProperty(\"key\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nи передадим это в метод hello у класса Kotlin, который должен его распечатать:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003EKotlin().hello(prop)\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЧто получится на выходе?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Ehello\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Ehello null\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eни один из приведенных вариантов\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nВообще type inference — отличная тема. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗапускаем. Получаем IllegalStateExeption.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh5.googleusercontent.com\u002F6pR4SNVIXkdAz6AjLOIQKGLkEAgCUdRlYOKbGgxu7gHC8TZiJv0nv0CJ-0VtyTMNRpR2zbLXCPADXfnfXU36uKJ8bkW8bRUSOtquo4KlOarDEbwl7JVLdCe5JY7kJd2xoHuQTpiP\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗначение prop будет null, тип — String!.. Он идет в hello, и в рантайме будет проверка, что должен быть не null, а он null.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНа самом деле в начальной версии Котлина действительно сделали, что когда из Java приходит String, он всегда по умолчанию nullable.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eval prop: String? = System.getProperty(\"key\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭто привело к тому, что стало очень неудобно писать код, когда идет интероп с Java. И решили сделать виртуальный тип String! (с восклицательным знаком). Это как раз третий вариант nullability — называется «я не знаю».\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eval prop: String! = System.getProperty(\"key\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nОднако такой код не компилируется, поскольку тип String! нельзя объявить самостоятельно. Он может прийти только из Java.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПоэтому такие штуки лучше заранее объявлять как nullable или не nullable (как правило, вы из API знаете, может там null когда-нибудь прийти или нет).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nА вот такой код скомпилируется, но может упасть в рантайме:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eval prop: String = System.getProperty(\"key\")\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nIDEA всегда знает, где какой тип. Можно нажать на переменной Ctrl+q и выяснить.\u003Cbr\u002F\u003E\nНо закончим с nullability, перейдем к другой теме.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 4\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nУ нас есть 2 функции, которые должны печатать. Мы их объявляем и запускаем — должно быть все просто:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p4_kotlinVsScala\n\nfun main1() = print(\"Hello\")\n\nfun main2() = {\n    print(\"Hello2\")\n}\n\nmain1()\nmain2()\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЧто будет на выходе?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003EHello\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EHello2\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EHelloHello2\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… Получаем Hello.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh6.googleusercontent.com\u002FUJBQIVXTl81Y051klAVUtz-Mv0UxTKdHMA5tW7WGV53-JUvYccUvDFSc-PKMBgEjmdt55Hp15sxtNa2WmEPmfd47WzJPovYUzbj6oGQHxQ5pB1gbZEpqknVi9ZxPgHfRqmFXZ7Xx\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nMain1 вернет юнит, но при этом вызовет print(«Hello»). А main2 всего лишь вернет лямбду, которая не будет выполняться.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nИсправить можно так:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Emain2()()\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nВторой, на мой взгляд, лучший вариант исправления — убрать знак равно у main2, поскольку он всех только смущает:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Efun main2() {\nprint(\"Hello 2\")\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nПочему я назвал этот пример Котлин vs Scala? Те, кто писал на Scala, знают, что там этот код — абсолютно валидное объявление функции, которая что-то возвращает:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Efun main2() = { }\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nБедные Scala-девелоперы, которые будут писать на Котлине. Они, наверное, постоянно будут возвращать лямбды без запуска.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 5\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nУ нас есть list из цифр, мы его перебираем методом forEach. ForEach, как и в Groovy, если параметр лямбда не объявлен, знает it. И мы проверяем, что он не больше 2, и печатаем.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p5_sneakyReturn\n\nfun main(args: Array&lt;String&gt;) {\n    listOf(1, 2, 3).forEach {\n        if (it &gt; 2) return\n        print(it)\n    }\n    print(\"ok\")\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nКакой будет итог?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003E123ok\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E12ok\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E12\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eбесконечный цикл\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем…\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002FaUKe9b1GuXyRDiV4dsfloS2kpB8R2rzRPGKUr02rmtEA3z8Gnox3fgwBpK9S4582ZP4VgBg-pHSH1eUpz3fMjrCTbgAYCTRMb3DQ-XgkKFkv59KwOU2iOYRlTTMH5gNX8EGWUWNy\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n12\u003Cbr\u002F\u003E\nЧто за ерунда?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ Котлине return возвращает из функции. А чтобы выйти из конкретной лямбды, внутри этой функции нужно после return указать название лямбды:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eif (it &gt; 2) return@forEach\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nТак можно выйти из лямбды. Если вы пишите на Java и вам очень нужно выйти из лямбды, это вариант исправления кода.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНа самом деле return в Котлине работает так, как он должен работать. Если бы мы до этого не писали бы на C# и Java, наверное, и не ошиблись бы, потому что return возвращается из функции main. Все логично. И нет никаких странных фич с лямбдами, из которых тоже почему-то нужно выйти.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему это так работает? \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh3.googleusercontent.com\u002FYtVsB0w9KCL0EN9kQn6JKssYrcJzElZt5vAaQX8XLNWwWlgPg55GOwwdLE0KLRKKl73DqghssNVX8aEGTm9lpcA6CWNsh7swYVi-2zci5CW4hdjIrye9GUDw5dN3_hRQdAyLM1Tm\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nФункция forEach объявлена как inline функция. В Kotlin компилятор не вызывает эту функцию в скомпилированном коде, а берет код этой функции и вставляет на то место, где был call. В результате здесь получается обычный for-цикл и, естественно, тогда return выходит из функции main.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКак понять, что это Inline функция? Во-первых, в IDEA есть Ctrl+p. А во-вторых, если вызвать return, а функция окажется не inline, то компилятор скажет: «Извини, нельзя это делать». То есть компилятор не позволит нам сделать какую-то ерунду. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЕсть еще один вариант, как можно исправить этот код, чтобы он возвращал «12ok». Нужно это объявить как функцию, а не лямбду. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Efun main(args: Array&lt;String&gt;) {\n    listOf(1, 2, 3).forEach(fun() {\n        if (it &gt; 2) return\n        print(it)\n    })\n    print(\"ok\")\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЕдинственное отличие в Котлине анонимной функции и лямбды в том, что первая ведет себя именно как функция, а значит — return будет возвращать из ближайшего «веселья» (fun). Поэтому с таким исправлением оно будет работать как надо.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЧтобы было еще интереснее, я подготовил несколько примеров. В Котлине бывают разные кейворды:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Efun\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Einline fun\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Einline fun с лямбдой noinline\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Einline fun с лямбдой crossinline\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nНекоторые из них позволяют использовать return, а некоторые — нет.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p5_sneakyReturn\n\nfun hello(block: () -&gt; Unit) = block()\n\ninline fun helloInline(block: () -&gt; Unit) = block()\n\ninline fun helloNoInline(noinline block: () -&gt; Unit) = hello(block)\n\ninline fun helloCrossInline(crossinline block: () -&gt; Unit) = runnable { block() }.run()\n\nfun main(args: Array&lt;String&gt;) {\n    hello {\n        println(\"hello\")\n        \u002F\u002Freturn - impossible\n    }\n\n    hello(fun() {\n        println(\"hello\")\n        return\n    })\n\n    helloInline {\n        println(\"hello\")\n        return\n    }\n\n    helloNoInline {\n        println(\"hello\")\n        \u002F\u002Freturn - impossible\n    }\n\n    helloCrossInline {\n        println(\"hello\")\n        \u002F\u002Freturn - impossible\n    }\n\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nДомашним заданием оставляем пожелание разобраться, что такое Crossinline. Думаю, вам это будет интересно.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКогда я только начал писать на Котлине, я тоже подумал, что это нечто сложное. Но когда ты понимаешь, что такое inline-функция (почти все extension-функции для коллекции — Inline для performance), все становится очень логичным.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 6\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nНам нужно получить John или Jaan. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nУ нас есть простой класс Person. В Котлине очень удобно: можно при декларации класса сразу продекларировать конструктор. Мы получаем переменную конструктора name, забиваем ее в property. В Котлине нет field — есть только property, что очень круто, так как не нужно писать геттер, сеттеры и всякую ерунду (или геты и сеты, как в C#). Отличный красивый синтаксис.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ итоге мы создаем Person с именем John и смотрим, превратится ли он у нас в эстонскую локализацию Jaan:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p6_getMeJohn\n\nclass Person(name: String) {\n    var name = name\n        get() = if (name == \"John\") \"Jaan\" else name\n}\n\nprintln(Person(\"John\").name)\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003EJohn\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EJaan\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eни один из вариантов\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем…\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh5.googleusercontent.com\u002FLKnA22LjVPqQ8rs7d2UJYocWIlNw4PSLphrdtRrm4RfwrZYb0Wcr4hfTq1MMgbAJZ9igCBTBmGtYmv0treL3vALgdTuIVj3UIrB5SRBw7DM0wUEKN12eHwcTINsIEWRLnkW14z6V\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭто stack overflow.\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\nМы берем name, делаем ему if-else и вызываем его же по get. Чтобы исправить, нужно обратиться к полю, а не к property. Можно использовать кейворд field:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eclass Person(name: String) {\n    var name = name\n        get() = if (field == \"John\") \"Jaan\" else field\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nПо кейворду field в Котлине можно обратиться к полю, но единственное место, где это можно сделать, — внутри геттера \u002F сеттера. Все остальные обращения идут только через property — напрямую к field не обращаются.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nГоворят, что по перформансу все это круто, потому что Java Hotspot компилятор это хорошо оптимизирует, в отличие от виртуальных машин .NET, и все работает очень быстро.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 7\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nСнова смотрим на офигенную фичу языка — type inference — нас не волнует, какого типа whatAmI, мы его можем все равно использовать. Но компилятор знает, что это такое. Посмотрим, знаем ли мы.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p7_whatAmI\n\nval whatAmI = {}()\nprintln(whatAmI)\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nКакой вариант будет в итоге?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Ekotlin.jvm.functions.Function0\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E() -&gt; kotlin.Unit\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Ekotlin.Unit\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eничего\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… Получаем kotlin.Unit.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh3.googleusercontent.com\u002FoqYu7nR1aKVRnSHjustvKH0-An0HKnB4jmtbGtg3fdJwFCw-TuA5GJuexuxuGgc8kT5r8s-7_l-3eD6IqBNo7NbWulaUGF-mNLyE4eTu2u4T1qxIHVS_pGl_jVXX0-vCZW5llsf9\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗдесь объявляется лямбда, потом происходит вызов лямбды. Так как лямбда ничего не возвращает (точнее, возвращает kotlin.Unit), именно это и выводится. А самое лучшее определение unit — это void.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nОткуда вообще пришел Unit? По-моему, даже в математике (или в computer science) есть такое понятие как теория типов. И там описано, что Unit — это один элемент, который означает «ничего». Поэтому некоторые более академические языки программирования используют термин Unit. Котлин был задизайнен как прагматичный язык, но, тем не менее, его разработчики решили выбрать не прагматичный void, а придумали сделать Unit. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЧтобы вам было еще интереснее, в Котлине есть еще один тип: kotlin.Nothing.\u003Cbr\u002F\u003E\nЧем они отличаются? Пусть ответ на этот вопрос будет вам домашним заданием.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 8\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nМы посмотрели whatAmI, а теперь у нас будет iAmThis.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗдесь все немного усложняется: у нас есть класс IAm, он — data class (это офигенная фича в Kotlin, которая за нас автоматически генерирует equal, hashCode, toString и весь этот boiler plate, который мы все так ненавидим писать на Java). В Scala это case class — там название для этого хуже, хотя на самом деле все используют его именно как data class.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nУ класса IAm есть конструктор, в котором объявляем поле foo. Foo одновременно является property, поэтому его можно использовать с функцией hello(). \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nМы передаем туда String «bar», вызываем функцию hello и смотрим, что она нам возвращает.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p8_iAmThis\n\ndata class IAm(var foo: String) {\n    fun hello() = foo.apply {\n        return this\n    }\n}\n\nprintln(IAm(\"bar\").hello())\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЧто получим на выходе?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003EIAm\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EIAm(foo=bar)\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Ebar\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… Получаем bar\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh6.googleusercontent.com\u002Fd-8UwdVZX0x6JVlbRySFFl4Mw0rAFqqftP2IQxOStNI6kr0_afaPylKoon4wd0JdyRC7lx330wlG5juC3EJl4TBiaUj_mpmQpDW54UFZC5aNcXkmg2WRygUr12uoUSFuky5_O3TN\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nApply — хитрая extension-функция. Она принимает лямбду и позволяет внутри нее с объектом, на котором она вызвана, выполнять какие-то действия по this. Соответственно, this — это bar. И Hello — это bar.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ этом Kotlin похож на JavaScript. Как в JavaScript, в Kotlin можно достичь того состояния, когда вы уже не знаете, что такое this.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВообще там есть много полезных функций: also, let, with.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002F6wZMf3vtgMHg7cJuwwAprOpmPmn6WAg_tE0Q0zuyMopGfIZId2DmEkFJmfyqU0U7CFQDOf5X3IE_NOgLv_kLygOtxVRGZp7dutd6qeaTjmdGpq8Oj2CTTEENcrK_Visns9rO0V_5\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ принципе, они все отличаются достаточно мало.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nК примеру, apply — это extension-функция на абсолютно любой тип (не nullable). Она принимает лямбду, а лямбда эта очень хитрая, потому что она апплаится к внутреннему T, а не к внешнему объекту (внутри этой лямбды свой Т). Т.е. функция вызывает эту лямбду со своим this и возвращает this (это иногда тоже полезно). \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЕсть и другие функции. Код можно исправить следующим образом:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p8_iAmThis\n\ndata class IAm(var foo: String) {\n    fun hello() = foo.let {\n        return it\n    }\n}\n\nprintln(IAm(\"bar\").hello())\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nТогда это, может быть, станет менее непонятно.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nДля некоторых кейсов Apply — очень полезная функция. Но если вы очень быстро смотрите на код (и при этом используется первый вариант записи), можно запутаться.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ первом варианте можно сократить код так (функция apply и сама возвращает this, поэтому ничего не меняется):\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Edata class IAm(var foo: String) {\n    fun hello() = foo.apply {\n    }\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\n\u003Ch4\u003EПазлер 9\u003C\u002Fh4\u003E\u003Cbr\u002F\u003E\nПосмотрим на уже известную нам функцию let.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭтот пазлер прислал Kevin Most из Канады. У него есть простая функция, которая печатает знак аргумента (Int).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p9_weirdChaining\n\u002F\u002F by Kevin Most @kevinmost\n\nfun printNumberSign(num; Int) {\n    if (num &lt; 0) {\n        \"negative\"\n    }  else if (num &gt; 0) {\n        \"positive\"\n    } else {\n        \"zero\"\n    }.let { println(it) }\n}\nprintNumberSign(-2)\nprintNumberSign(0)\nprintNumberSign(2)\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЧто такой код будет печатать?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003Enegative; zero; positive\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Enegative; zero\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Enegative; positive\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Ezero; positive\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… На выходе — zero; positive. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002F-UaPBFWIIceRkQYDZ114eahGYXbFrue7a7W7PUXsYWUE6BM95ohpQrw5GfO-UkBB6JvD9glGEL5xfShIpERbwhsrY_oUT0Wvn-qgrmPYu28bONHzm_I7ANxKdiNi4mplcZmGKH4R\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ чем же дело?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nIf — это на самом деле выражение. То есть получается два выражения, и let применяется только ко второму.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЯ много писал на Kotlin, но этот пазлер сам не решил. Это какая-то адская тема. На предыдущей конференции JPoint мы даже думали, что это баг в компиляторе. Но я спросил у Андрея Бреслава, и выяснилось, что это просто нюанс парсера.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКак исправить? Легко — достаточно поставить скобки:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Efun printNumberSign(num; Int) {\n    (if (num &lt; 0) {\n        \"negative\"\n    }  else if (num &gt; 0) {\n        \"positive\"\n    } else {\n        \"zero\"\n    }).let { println(it) }\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nТогда let применяется к результату всего выражения. А в первом случае код срабатывал так:\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Efun printNumberSign(num; Int) {\n    if (num &lt; 0) {\n        \"negative\"\n    }  else (if (num &gt; 0) {\n        \"positive\"\n    } else {\n        \"zero\"\n    }).let { println(it) }\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nПри этом верхний expression идет отдельно — к нему функция let не применяется.\u003Cbr\u002F\u003E\nОператора elseif в Котлине нет (если бы он был, тогда бы этого пазлера бы и не было).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКак и во всех пазлерах, мораль такова: не пишите такой код. Если хотите сделать что-то сложное (как здесь), обязательно поставьте скобки или положите это в переменную и потом вызовите let.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 10\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nЕще более интересный пазлер. Тут много кода.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭтот пазлер засабмиттил Даниил Водопьян. Это пазлер на очень классную фичу в Kotlin — delegate properties. В Котлине мы можем объявить, например, что в классе есть несколько properties, и они имплементируются не как field, а как лукапы из map. \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nУ нас есть класс Population — население. А cities нам передает (var cities: Map&lt;String, Int&gt;) и мы делегируем их в этот map.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЭто фактически позволяет превратить Kotlin в JavaScript и делать более динамические структуры, не копировать данные туда-сюда. Такие классы сокращают очень много кода.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПотом мы создаем инстанс класса Population и передаем ему для всех городов население.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nТеперь представим, что прошло много лет. Люди загадили Землю — улетели жить на Марс. Поэтому мы сбрасываем map с населением.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗдесь есть функция with, которую мы смотрели до этого. Она берет population и ресолвит относительно него имеющиеся field-ы (в принципе, точно также, как и apply).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p10_mappedDelegates\n\u002F\u002F by Daniil Vodopian @voddan\n\nclass Population(var cities: Map&lt;String, Int&gt;) {\n    val tallinn by cities\n    val kronstadt by cities\n    val st_petersburg by cities\n}\n\nval population = Population(mapOf(\n    \"st_petersburg\" to 5_281_579,\n    \"tallinn\" to 407_947,\n    \"kronstadt\" to 43_005\n))\n\n\u002F\u002F Many years have passed, now all humans live on Mars \npopulation.cities = emptyMap()\n\nwith(population) {\n    println(\"$tallinn; $kronstadt; $st_petersburg\")\n}\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nВсе легко. Осталось только понять, что станет с нашей Землей, когда все улетят на Марс. Что такой код выдаст?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003E0; 0; 0\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E407947; 43005; 5281579\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003ENullPointerException\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003ENoSuchElementException\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… Оказывается, люди никуда не исчезли (на Марсе жить очень сложно, поэтому мы, скорее всего, останемся на Земле).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh4.googleusercontent.com\u002F5pX776aR3IfAQYSJGbTr4pihliEVXkrHIPTXO8WpfqzNZlKVuHxLv6psh7EB3VpzsAafICRQDvyrU6gUDRh3TXFICbdrLYIVhWqSCoR7MRcZ3yQdI25kEUrmyKuE1wAR9lDRbIWO\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПочему?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНеверно сказать, что population.cities = emptyMap() сделает пустую map у класса, но не у его экземпляра. Если мы изменим код так (сделаем MutableMap и обнулим Кронштадт — population.kronstadt = 0): \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Eclass Population(var cities: MutableMap&lt;String, Int&gt;) {\n    val tallinn by cities\n    var kronstadt by cities\n    val st_petersburg by cities\n}\n\nval population = Population(mutablemapOf(\n    \"st_petersburg\" to 5_281_579,\n    \"tallinn\" to 407_947,\n    \"kronstadt\" to 43_005\n))\n\n\u002F\u002F Many years have passed, now all humans live on Mars \npopulation.kronstadt = 0\n\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nКод выведет: 407947; 0; 5281579 \u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nНо обсуждаем мы все-таки первый вариант (c population.cities = emptyMap()).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nКогда мы исполняем delegate, ссылка на map запоминается внутри геттера (для каждого из них). И если мы меняем ссылку на cities, это уже не меняет ссылки внутри геттеров. Но мы можем даже в cities положить в map другое, и все будет работать, поскольку это все равно остается ссылка на тот же самый map. Но если мы меняем референс на другой map, то он перестает действовать.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Ch2\u003EПазлер 11\u003C\u002Fh2\u003E\u003Cbr\u002F\u003E\nУ нас в Эстонии есть отличная поговорка: «У хорошего ребенка есть много имен».\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nПосмотрим, как это здесь относится к нашим классам.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ Котлине есть такой странный нюанс: классы по умолчанию final — их нельзя проэкстендить. Есть кейворд open, который все-таки позволяет их экстендить.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ этом пазлере в классе C у нас есть open-метод (тоже, чтобы мы могли его заоверрайдить). Здесь мы берем x и y (у них есть дефолтные значения — это очень классная фича в языке).\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nУ нас есть класс D, который экстендит класс C и оверрайдит функцию sum, но в принципе ничего полезного не делает, кроме того, что вызывает супер-имплементацию.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nДальше у нас есть переменная d — мы создаем инстанс класса D; у нас есть переменная c и туда мы присваиваем тот же самый инстанс (получаем 2 референса на один и тот же инстанс класса D). И мы вызываем один и тот же метод по сути на одном и том же объекте.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cpre\u003E\u003Ccode class=\"kotlin\"\u003Epackage p11_goodChildHasManyNames\n\nopen class C {\n  open fun sum(x: Int = 1, y: Int = 2): Int = x + y\n}\n\nclass D : C() {\n  override fun sum(y: Int, x: Int): Int = super.sum(x, y)\n}\n\nval d: D = D()\nval c: C = d\nprint(c.sum(x = 0))\nprint(d.sum(x = 0))\nprintln()\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003Cbr\u002F\u003E\nЧто получим в итоге?\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003E22\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E11\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E21\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003Eне скомпилируется\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nЗапускаем… Правильный ответ — 21.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cimg src=\"https:\u002F\u002Flh3.googleusercontent.com\u002FVBWW7gv1YxARynejzTsKPQagt8YUiftZamOQx-VkLn_voW0acN4BTh5IJssvXKa0qodgORQ-7AUZNZbCHZzFfMi_lOF4s1Ez7q2li66f7PYZ-_BZxcyR-n5G5mLeVMsIzelj-GuX\"\u002F\u003E\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nЗдесь еще есть некоторые warning-и, которые помогают понять, что происходит.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВ обоих случая вызывается переопределенная функция, потому что полиморфизм. В рантайме выбирается, какая функция вызывается, потому что в реальности и c, и d — это инстанс класса D. Но так как у JVM нет такой фичи, как именные параметры, их ресолвит компилятор от compile-time. Т.е. получается, что функция выбирается и вызывается в рантайме, а параметры выбираются в compile-time. Поэтому какие параметры он подставляет, зависит от типа переменной, а не объекта, получающегося в рантайме. Это косяк. Warning-и предупреждают, что не следует путать свои названия — когда вы оверрайдите функцию, ее надо назвать иначе.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nХорошая новость в том, что примерно для половины представленных пазлеров в IDEA уже есть warning. Благодаря тому, что JetBrains сами занимаются еще и инструментами, они достаточно хорошо помогают избегать многих ошибок. Но не всех. Для некоторых из пазлеров warning сделать попросту невозможно.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nОднако язык развивается. В 2016 году, когда я только начал на нем писать, было гораздо меньше инспекций в IDEA и гораздо проще было эти пазлеры самому схлопотать. Сейчас ситуация совсем другая: вышла версия 1.1, было много патч-релизов, много инспекций добавлено в IDEA, и на Котлине писать правильно теперь очень легко.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\nВместо заключения хочу сказать: переходите на Kotlin.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003EПод Android до сих пор нет нормальной Java 8, а в Котлине вы получаете все фичи Java 8 и даже еще больше. Можно гораздо лучше себя выражать.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EКотлин — язык без большого хайпа. Это тоже его плюс. \u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EЕго часто называют «Swift» для Android. Но со Swift есть небольшая проблема — когда выходит новая версия, приходится постоянно переписывать весь код. С Котлиным такой проблемы нет — нам обещают обратную совместимость, как и source-level, так и binary-level.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EKotlin компилируется гораздо быстрее, чем Scala. Он гораздо проще Scala.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EОн гораздо быстрее в рантайме, чем Groovy. Если вы добавляете свое приложение на Android, то размер по-моему увеличивается всего на 600 Кб по сравнению с Java — и это очень мало по сравнению со Scala. Поэтому есть смысл на нем писать.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EКогда я на него перешел, я начал быть продуктивным уже с первого дня.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EПро Kotlin говорят, что это «более хороший Groovy», там есть хорошие фичи.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EИ ваш самый главный друг в IDEA — это Ctrl+Alt+Shift+K, который сконвертирует любой класс Java сразу в Kotlin (as is). При этом нет Ctrl+Alt+Shift+J, поэтому вы не можете уже вернуться — это дорога в один конец. Да вы и не захотите возвращаться.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003EТакже переходит Gradle.\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003Cbr\u002F\u003E\nПрисылайте нам новые пазлеры, чтобы мы могли повеселиться на следующих конференциях.\u003Cbr\u002F\u003E\n\u003Cbr\u002F\u003E\n\u003Chr\u002F\u003E\u003Cbr\u002F\u003E\nЕсли любите нутрянку программирования так же, как и мы, и хотите основательнее погрузиться в Kotlin, рекомендуем обратить внимание вот на эти доклады, которые будут на грядущей конференции \u003Ca href=\"https:\u002F\u002Fmobiusconf.com\u002F\"\u003EMobius 2017 Moscow\u003C\u002Fa\u003E:\u003Cbr\u002F\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fmobiusconf.com\u002F2017\u002Fmsk\u002Ftalks\u002Fjslrnocqzieusmswmg0w0\u002F\"\u003EПишем Java-френдли Kotlin-код\u003C\u002Fa\u003E (Сергей Рябов, Independent)\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fmobiusconf.com\u002F2017\u002Fmsk\u002Ftalks\u002F7tt1i72eu0wkyywykuuuuw\u002F\"\u003EData Binding in a Kotlin world\u003C\u002Fa\u003E (Lisa Wray, New York Times)\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003Cli\u003E\u003Ca href=\"https:\u002F\u002Fmobiusconf.com\u002F2017\u002Fmsk\u002Ftalks\u002F4iprilrwsawge2e488yeis\u002F\"\u003EУниверсальные ссылки — дворец из подводных камней\u003C\u002Fa\u003E (Константин Якушев, Badoo)\u003Cbr\u002F\u003E\n\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\u003C\u002Fdiv\u003E","tags":[{"titleHtml":"kotlin"},{"titleHtml":"программирование"},{"titleHtml":"пазлер"},{"titleHtml":"кекс"}],"metadata":{"stylesUrls":[],"scriptUrls":[],"shareImageUrl":"https:\u002F\u002Fhabr.com\u002Fshare\u002Fpublication\u002F338924\u002F7db1c61dfe0628dc6fa584b1581689c8\u002F","shareImageWidth":1200,"shareImageHeight":630,"vkShareImageUrl":"https:\u002F\u002Fhabr.com\u002Fshare\u002Fpublication\u002F338924\u002F7db1c61dfe0628dc6fa584b1581689c8\u002F?format=vk","schemaJsonLd":"{\"@context\":\"http:\\\u002F\\\u002Fschema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https:\\\u002F\\\u002Fhabr.com\\\u002Fru\\\u002Fcompanies\\\u002Fjugru\\\u002Farticles\\\u002F338924\\\u002F\"},\"headline\":\"Kotlin, puzzlers and 2 Kekses: Вы уверены, что знаете, как ведет себя Kotlin?\",\"datePublished\":\"2017-09-29T10:42:17+03:00\",\"dateModified\":\"2017-09-29T17:03:56+03:00\",\"author\":{\"@type\":\"Person\",\"name\":\"Алексей Городищев\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Habr\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fwebt\\\u002Fa_\\\u002Flk\\\u002F9m\\\u002Fa_lk9mjkccjox-zccjrpfolmkmq.png\"}},\"description\":\"Вначале была Java (ладно, не то чтобы в самом начале&hellip; но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains...\",\"url\":\"https:\\\u002F\\\u002Fhabr.com\\\u002Fru\\\u002Fcompanies\\\u002Fjugru\\\u002Farticles\\\u002F338924\\\u002F#post-content-body\",\"about\":[\"c_jugru\",\"h_kotlin\",\"h_programming\",\"f_develop\"],\"image\":[\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fwebt\\\u002F59\\\u002Fcc\\\u002Ff5\\\u002F59ccf540452ce749063272.jpeg\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fwebt\\\u002F59\\\u002Fcd\\\u002F00\\\u002F59cd0075db1af556127505.jpeg\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F474\\\u002F499\\\u002F173\\\u002F474499173253787f1acdf17f31527df9.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F3cc\\\u002F581\\\u002Faf0\\\u002F3cc581af06474030526075ac39ac9cf9.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F12a\\\u002F793\\\u002Fcd1\\\u002F12a793cd12a734f499ca6cddb4b9f8cd.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F6be\\\u002F90a\\\u002F0f6\\\u002F6be90a0f6bf444b55d0210b30f8b6561.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Faf7\\\u002F2d1\\\u002Fc7f\\\u002Faf72d1c7fd768383ebb737ee4073cfc8.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F38a\\\u002Fae2\\\u002Fa3a\\\u002F38aae2a3a3731e6386188cfc96133383.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F56f\\\u002F11a\\\u002Fccb\\\u002F56f11accb80e84979baeed8eb3e9bdfb.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Fe30\\\u002Fe89\\\u002F312\\\u002Fe30e8931299bde0d73915d39fd297663.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Fb79\\\u002F1e8\\\u002F5aa\\\u002Fb791e85aa58e71fa8ae0a9aa3544ea22.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F98f\\\u002Face\\\u002F0c8\\\u002F98face0c80246ce47a683e4196b919a8.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Fb63\\\u002F748\\\u002F62b\\\u002Fb6374862b73ca7f57db3d72fd7922c1e.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F850\\\u002Fcba\\\u002Fb0e\\\u002F850cbab0e686bf9b463970c441f84e0b.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F957\\\u002Fffc\\\u002F599\\\u002F957ffc5998976612a8e3e56a65ce0d7a.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Fd5f\\\u002F219\\\u002F51e\\\u002Fd5f21951ef6c123b9eab36a338a3a36f.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002Fd91\\\u002Ffcb\\\u002F514\\\u002Fd91fcb514f33428c0c139fae24bcc07e.png\",\"https:\\\u002F\\\u002Fhabrastorage.org\\\u002Fgetpro\\\u002Fhabr\\\u002Fpost_images\\\u002F96d\\\u002F6d1\\\u002F5e9\\\u002F96d6d15e91b57bbece3ed1fb0707dd8b.png\"]}","metaDescription":"Вначале была Java (ладно, не то чтобы в самом начале… но наша история начинается именно здесь), шло время, и спустя 20 с небольшим лет умные ребята из JetBrains спроектировали и зарелизили Kotlin,...","mainImageUrl":null,"amp":false,"customTrackerLinks":[]},"polls":[],"commentsEnabled":{"status":true,"reason":null},"rulesRemindEnabled":false,"votesEnabled":true,"status":"published","plannedPublishTime":null,"checked":null,"hasPinnedComments":false,"format":null,"banner":null,"multiwidget":null,"multiwidgetUuid":null,"readingTime":15,"complexity":null,"isEditorial":false,"allowedFeatures":{"isTestTargetAllow":false}}},"articlesIds":{},"isLoading":false,"pagesCount":{},"route":{},"reasonsList":null,"postReasonsList":null,"view":"list","lastVisitedRoute":{},"ssrCommentsArticleIds":[""],"viewedPosts":[],"myFeedFilter":{"complexity":"all","score":"all","types":["articles","posts","news"]},"myFeedIsApplyFilters":false,"myFeedIsForce":false,"karma":{"userReasonsList":null}},"authorContribution":{"authors":{}},"betaTest":{"currentAnnouncement":null,"announcements":{},"announcementCards":null,"announcementComments":{},"announcementCommentThreads":{},"announcementCommentingStatuses":{},"archivedList":[]},"authorStatistics":{"articleRefs":{},"articleIds":{},"pagesCount":{},"route":{},"viewsCount":[],"maxStatsCount":{}},"career":{"seoLandings":[],"hubs":""},"comments":{"articleComments":{},"articlePinnedComments":{},"searchCommentsResults":null,"pagesCount":null,"commentAccess":{},"scrollParents":{},"pageArticleComments":{"lastViewedComment":0,"postId":null,"lastCommentTimestamp":"","moderated":[],"moderatedIds":[],"commentRoute":"","idempotenceKey":""}},"companies":{"companyRefs":{"jugru":{"alias":"jugru","imageUrl":"\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fcompany\u002F0a7\u002Fce6\u002Fa86\u002F0a7ce6a86556ff20579e90e6b732e663.png","titleHtml":"JUG Ru Group","descriptionHtml":"Конференции для Senior-разработчиков","relatedData":null,"statistics":{"subscribersCount":93717,"rating":110.73,"invest":null,"postsCount":1181,"threadsCount":0,"newsCount":17,"vacanciesCount":0,"employeesCount":47,"careerRating":null},"foundationDate":{"year":"2012","month":"02","day":"25"},"location":{"city":{"id":"447733","title":"Санкт-Петербург"},"region":{"id":"1948","title":"Санкт-Петербург и область"},"country":{"id":"168","title":"Россия"}},"siteUrl":"https:\u002F\u002Fjugru.org","staffNumber":"51–100 человек","registrationDate":"2013-08-22T14:33:51+00:00","representativeUser":{"alias":"23derevo","fullname":"Алексей Федоров"},"contacts":[{"title":"Сайт","url":"http:\u002F\u002Fjugru.org","siteTitle":"IT-конференции 2025 | JUG Ru Group | Практика и нетворкинг","favicon":"https:\u002F\u002Fjugru.org\u002Fimg\u002Fconference\u002Fjug\u002Ffavicon\u002Ffavicon-32x32.png"},{"title":"ВКонтакте","url":"https:\u002F\u002Fvk.com\u002Fjugrugroup","siteTitle":"VK | VK","favicon":"https:\u002F\u002Fm.vk.com\u002Fimages\u002Ficons\u002Ffavicons\u002Ffav_logo.ico?10"},{"title":"Telegram","url":"https:\u002F\u002Ftelegram.me\u002FJUGruSupport","siteTitle":"Telegram: Contact @JUGruSupport","favicon":"https:\u002F\u002Ftelegram.org\u002Fimg\u002Fwebsite_icon.svg?4"}],"settings":{"analyticsSettings":[{"type":"ym","trackingId":"56554087"}],"branding":{"imageUrl":"\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fbranding\u002F4f3\u002F90a\u002F544\u002F4f390a544efda63b4d31ab7d9c41396e.jpeg","linkUrl":"http:\u002F\u002Fjugru.org\u002F?utm_medium=habr&utm_source=header2025","pixelUrl":null,"uuid":"0194f589-5a3a-709f-9a67-26c93d22df2c"},"status":"active","isStartup":false,"hasActivePolls":false,"shouldShowHabrAds":false},"metadata":{"titleHtml":"JUG Ru Group, Санкт-Петербург - Конференции для Senior-разработчиков с 25 февраля 2012 г.","title":"JUG Ru Group, Санкт-Петербург - Конференции для Senior-разработчиков с 25 февраля 2012 г.","keywords":["java","android","kotlin","spring","joker","jpoint","javascript","vue","react","holyjs"],"descriptionHtml":"1 181 статья от авторов компании JUG Ru Group","description":"1 181 статья от авторов компании JUG Ru Group"},"aDeskSettings":null,"careerAlias":"jugru","schoolAlias":null}},"companyIds":{},"companyTopIds":{},"pagesCount":{},"companyProfiles":{},"companiesCategories":[],"companiesCategoriesTotalCount":0,"companiesWidgets":{},"companiesWorkers":{},"companiesFans":{},"multiwidgets":{},"route":{},"isLoading":false,"companyWorkersLoading":false,"companyFansLoading":false,"multiwidgetLoading":false,"vacancies":{},"companiesGalleries":{},"companiesBanners":{},"companiesLandingVacancies":{},"companiesTechnologies":{},"workplaceInfo":null},"companyAdmin":{"companyInfo":null,"companyInfoLoading":false,"faqArticles":null,"brandingPreviewImageUrl":null,"jivoStatus":0,"adminNotifications":null,"availableInvitesCount":{}},"companyAdd":{"currentStep":"","stepsData":{},"uncompletedSteps":[],"isStepLoading":true,"isStepCommitting":false,"isInitialized":false,"agreementContent":""},"companiesContribution":{"hubs":{},"flows":{},"companyRefs":{}},"companyHubsContribution":{"contributionRefs":{"hubRefs":{},"hubIds":{}}},"conversation":{"messages":[],"respondent":null,"isLoadMore":false},"conversations":{"conversations":[],"pagesCount":0},"docs":{"menu":{},"articles":{},"mainMenu":[],"loading":{"main":false,"dropdown":false,"article":false}},"feature":{"isProbablyVisible":true},"fixedBanner":{"isArticleStickyPanelVisible":false,"isArticleStickyPanelAtTheBottom":false,"isFixedBannerVisible":false,"isStickyPanelIconsHidden":false},"flows":{"flows":[{"id":"1","alias":"develop","title":"Разработка","titleHtml":"Разработка","route":{"name":"FLOW_PAGE","params":{"flowName":"develop"}}},{"id":"6","alias":"admin","title":"Администрирование","titleHtml":"Администрирование","route":{"name":"FLOW_PAGE","params":{"flowName":"admin"}}},{"id":"2","alias":"design","title":"Дизайн","titleHtml":"Дизайн","route":{"name":"FLOW_PAGE","params":{"flowName":"design"}}},{"id":"3","alias":"management","title":"Менеджмент","titleHtml":"Менеджмент","route":{"name":"FLOW_PAGE","params":{"flowName":"management"}}},{"id":"4","alias":"marketing","title":"Маркетинг","titleHtml":"Маркетинг","route":{"name":"FLOW_PAGE","params":{"flowName":"marketing"}}},{"id":"7","alias":"popsci","title":"Научпоп","titleHtml":"Научпоп","route":{"name":"FLOW_PAGE","params":{"flowName":"popsci"}}}],"updates":{}},"global":{"isPwa":false,"device":"mobile","isHabrCom":true,"requestId":"4591f90601949e33815f293a3dcaf833"},"hubs":{"hubRefs":{},"hubIds":{},"pagesCount":{},"isLoading":false,"route":{}},"hubsBlock":{"hubRefs":{},"hubIds":{}},"i18n":{"fl":"ru","hl":"ru"},"info":{"welcomePage":{},"isLoading":true},"location":{"urlStruct":{"protocol":null,"slashes":null,"auth":null,"host":null,"port":null,"hostname":null,"hash":null,"query":{},"pathname":"\u002Fru\u002Fcompanies\u002Fjugru\u002Farticles\u002F338924\u002F","path":"\u002Fru\u002Fcompanies\u002Fjugru\u002Farticles\u002F338924\u002F","href":"\u002Fru\u002Fcompanies\u002Fjugru\u002Farticles\u002F338924\u002F"}},"me":{"user":null,"uuid":null,"ppgDemanded":false,"karmaResetInfo":{"canReincarnate":null,"wasReincarnated":null,"currentScore":null},"notes":null,"userUpdates":{"feeds":{"newPostsCount":null,"newThreadsCount":null,"newNewsCount":null,"newCount":null},"conversationUnreadCount":0}},"mostReadingList":{"mostReadingListIds":[],"mostReadingListRefs":null,"promoPost":null},"onboarding":{"currentStep":null,"stepsData":{},"stepsErrors":{},"completedSteps":[],"isStepCommitting":false,"isCommitDisabled":true},"ppa":{"articles":{},"card":null,"transactions":null,"totalTransactions":null,"isAccessible":null},"projectsBlocks":{"activeBlocks":{"vacancies":"project-block-company-article"}},"promoData":{"isLoading":false,"hasLoaded":false,"featurer":null,"megaposts":null,"promoLinks":null,"promoPosts":null,"sticker":null},"publicationStatistics":{"statsInfo":{},"statsFunnels":{},"statsGraph":{},"defaultSuggest":{},"suggest":{},"timeTracker":{},"isTrackingActivity":false,"isUserActive":true,"otherPublicationStats":{}},"pullRefresh":{"shouldRefresh":false},"sandbox":{"articleIds":[],"articleRefs":{},"pagesCount":null,"route":{},"lastVisitedRoute":{},"isLoading":false},"search":{"searchQueryError":null},"settingsOther":{"inputs":{"uiLang":{"errors":[],"ref":null,"value":""},"articlesLangEnglish":{"errors":[],"ref":null,"value":false},"articlesLangRussian":{"errors":[],"ref":null,"value":false},"agreement":{"errors":[],"ref":null,"value":false},"email":{"errors":[],"ref":null,"value":true},"digest":{"errors":[],"ref":null,"value":true}}},"similarList":{"similarListIds":[],"similarListRefs":null},"ssr":{"error":null,"isDataLoaded":true,"isDataLoading":false,"isHydrationFailed":false,"isServer":false},"stories":{"stories":[{"id":"story-998","author":{"logo":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F91a\u002F166\u002F49f\u002F91a16649f9ef89302a5a56cfa22a451d.png","title":"Яндекс Практикум","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up"},"title":"Как расти на работе?","lang":"ru","startTime":"2025-03-18T18:45:00+03:00","finishTime":"2025-03-31T19:00:00+03:00","slides":[{"id":"story-998_1","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fbf4\u002F911\u002F7e6\u002Fbf49117e637ff2099b3944f8803cd7a3.png","button":null},{"id":"story-998_2","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F3e3\u002Fc84\u002Fe83\u002F3e3c84e8330ea1ddf72e9d310457ed2f.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_3","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F84b\u002F533\u002F3c3\u002F84b5333c3e77e8dac62a8b50d042acb9.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_4","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F257\u002Feb0\u002F2be\u002F257eb02bea1777e13f3e647cae6e06cd.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_5","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F858\u002F086\u002F0ed\u002F8580860ed3497c043c04f9a42054d74f.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_6","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fcdf\u002F32f\u002F387\u002Fcdf32f38777f046c063b5182f4125e14.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_7","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fd48\u002Ff2d\u002F0e2\u002Fd48f2d0e2ecd7d746d738191bb913d8f.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_8","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fb38\u002Ffd7\u002Fee0\u002Fb38fd7ee04848bf3b058be7403438bd1.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_9","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F79e\u002Feaa\u002F9d8\u002F79eeaa9d8af5a288ad42bd9d63b5793a.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}},{"id":"story-998_10","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fcdc\u002F17e\u002F385\u002Fcdc17e38582dc67838b9abfb200d982e.png","button":{"title":"Расти в карьере","link":"https:\u002F\u002Fu.habr.com\u002Fstories_up","colorType":"light"}}]},{"id":"story-996","author":{"logo":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fe63\u002F36d\u002Fa24\u002Fe6336da24460ab6b9fbc347d03eb263a.png","title":"Хабр","link":null},"title":"Здоровье айтишника","lang":"ru","startTime":"2025-03-17T10:22:00+03:00","finishTime":"2025-04-13T10:22:00+03:00","slides":[{"id":"story-996_1","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fb7c\u002F6de\u002F8ea\u002Fb7c6de8ea6789dbc30f071716172b6dd.jpg","button":null},{"id":"story-996_2","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F2e7\u002F88a\u002F0fe\u002F2e788a0fe61729ca8b23eb59069c844f.jpg","button":{"title":"Личный опыт","link":"https:\u002F\u002Fu.habr.com\u002Fzd-1","colorType":"light"}},{"id":"story-996_3","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fb93\u002F6f4\u002F256\u002Fb936f425653b84fa60ab00d09f78c543.jpg","button":{"title":"Как это было","link":"https:\u002F\u002Fu.habr.com\u002Fzd-2","colorType":"light"}},{"id":"story-996_4","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fc10\u002Fd14\u002Ff5a\u002Fc10d14f5a4859fe10baecbcc2bcb8828.jpg","button":{"title":"Шея в фокусе","link":"https:\u002F\u002Fu.habr.com\u002Fzd-3","colorType":"dark"}},{"id":"story-996_5","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F535\u002Fe1b\u002F77a\u002F535e1b77a9eb896262ad73321f2ad99f.jpg","button":{"title":"Фотоинструкция","link":"https:\u002F\u002Fu.habr.com\u002Fzd-4","colorType":"light"}},{"id":"story-996_6","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F569\u002Fc39\u002F49f\u002F569c3949f5b330ea85d4a1864f481c3d.jpg","button":{"title":"Сидите (не)правильно","link":"https:\u002F\u002Fu.habr.com\u002Fzd-5","colorType":"dark"}},{"id":"story-996_7","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F1f2\u002F1de\u002Fdbf\u002F1f21dedbf2902bc4061a75b839b63595.jpg","button":{"title":"Журнал изменений","link":"https:\u002F\u002Fu.habr.com\u002Fzd-6","colorType":"dark"}},{"id":"story-996_8","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F95a\u002F164\u002F21b\u002F95a16421badc3a9f1135309ab0c42c41.jpg","button":{"title":"Альтернатива","link":"https:\u002F\u002Fu.habr.com\u002Fzd-7","colorType":"light"}},{"id":"story-996_9","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F624\u002F027\u002F54d\u002F62402754d311798af44bcfe7f9abfedc.jpg","button":{"title":"Хроника поисков","link":"https:\u002F\u002Fu.habr.com\u002Fzd-8","colorType":"dark"}}]},{"id":"story-992","author":{"logo":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F3fe\u002F2fc\u002Fb05\u002F3fe2fcb05df852d7e1e00d44e54e39ae.png","title":"Сезоны Хабра","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories"},"title":"Угадайте будущее в новом сезоне","lang":"ru","startTime":"2025-03-12T19:15:00+03:00","finishTime":"2025-03-31T23:56:00+03:00","slides":[{"id":"story-992_1","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fc56\u002Faf5\u002Fc43\u002Fc56af5c4377f7f7b94f7b6ad20fc92c3.png","button":{"title":"А что за сезон?","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories","colorType":"light"}},{"id":"story-992_2","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F8fa\u002Fde7\u002F65d\u002F8fade765d99207f31c597283ae6ce912.png","button":{"title":"Какие темы нужны","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories","colorType":"dark"}},{"id":"story-992_3","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F23e\u002F7b9\u002Fb24\u002F23e7b9b24cb056d1a42e8d31ccea16ce.png","button":{"title":"Сезон будущего ИИ","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories","colorType":"dark"}},{"id":"story-992_4","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F27b\u002Fbfc\u002Fa18\u002F27bbfca18e656ee0122b5cb8eb2cb502.png","button":{"title":"Все правила сезона","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories","colorType":"dark"}},{"id":"story-992_5","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F1e0\u002F6c6\u002Ff33\u002F1e06c6f33e703bbd2b2ae3baee3376fd.png","button":{"title":"Как участвовать","link":"https:\u002F\u002Fu.habr.com\u002Ffnstories","colorType":"dark"}}]},{"id":"story-990","author":{"logo":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F282\u002Fe80\u002Fbf1\u002F282e80bf1b73484126ed53c6f3e42692.png","title":"Aeza","link":"https:\u002F\u002Fu.habr.com\u002FI72qi"},"title":"С праздником весны!","lang":"ru","startTime":"2025-03-09T10:15:00+03:00","finishTime":"2025-03-30T23:59:00+03:00","slides":[{"id":"story-990_1","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F064\u002F9dd\u002Ff59\u002F0649ddf5949cae6c9342fb62034a36ac.png","button":null},{"id":"story-990_2","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F05f\u002F96b\u002F25e\u002F05f96b25e910c32256ee0b1916f21380.png","button":{"title":"Семейная история","link":"https:\u002F\u002Fu.habr.com\u002Fey2bY","colorType":"light"}},{"id":"story-990_3","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fcd1\u002Ff5d\u002F921\u002Fcd1f5d921bb9489ac11727272660bdb6.png","button":{"title":"Движущиеся картинки","link":"https:\u002F\u002Fu.habr.com\u002FWLKXU","colorType":"light"}},{"id":"story-990_4","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fb55\u002Fd45\u002Fec5\u002Fb55d45ec50e53275c60d16ea886a0672.png","button":{"title":"Личный опыт","link":"https:\u002F\u002Fu.habr.com\u002FSxrki","colorType":"light"}},{"id":"story-990_5","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Ffa7\u002F1ce\u002Ffca\u002Ffa71cefca5ed0a3fe8b50bd703b3605f.png","button":{"title":"Алгоритм","link":"https:\u002F\u002Fu.habr.com\u002Ftbz2p","colorType":"light"}},{"id":"story-990_6","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F435\u002F89d\u002Ff90\u002F43589df9018846cc6a8eed986226b252.png","button":{"title":"Выбрать сценарий","link":"https:\u002F\u002Fu.habr.com\u002F0RCPk","colorType":"light"}},{"id":"story-990_7","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F514\u002F5f8\u002F619\u002F5145f86194ad48dad48a846b42af0f93.png","button":{"title":"Jiraзамещение","link":"https:\u002F\u002Fu.habr.com\u002FEwhYq","colorType":"light"}},{"id":"story-990_8","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F439\u002Fa83\u002Fae7\u002F439a83ae78f7ef711e3b9bbed1ec26c5.png","button":{"title":"8 вещей","link":"https:\u002F\u002Fu.habr.com\u002FVTv2r","colorType":"light"}},{"id":"story-990_9","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F02d\u002F783\u002F2f7\u002F02d7832f7b1c95d88bff9f34209e204a.png","button":{"title":"Интерфейсы","link":"https:\u002F\u002Fu.habr.com\u002FUFOMZ","colorType":"light"}},{"id":"story-990_10","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F0cb\u002Ff7f\u002F0d9\u002F0cbf7f0d905d486ce4ff82bc939b21d5.png","button":{"title":"Стикеры ваши","link":"https:\u002F\u002Fu.habr.com\u002FoA1K7","colorType":"light"}}]},{"id":"story-984","author":{"logo":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F648\u002F61b\u002F9ae\u002F64861b9aecb7c474cd94063f98045541.png","title":"Хабр","link":null},"title":"Всегда котов!","lang":"ru","startTime":"2025-03-01T00:01:09+03:00","finishTime":"2025-03-23T16:21:00+03:00","slides":[{"id":"story-984_1","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fc06\u002Fc21\u002F93f\u002Fc06c2193ff34362ac2af782cf2571f55.png","button":null},{"id":"story-984_2","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Fb68\u002F15f\u002F763\u002Fb6815f7630b9c015b1e67efb5bdf12d4.jpg","button":{"title":"Сделать purrrr","link":"https:\u002F\u002Fu.habr.com\u002Fj4DN1","colorType":"light"}},{"id":"story-984_3","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F550\u002F76e\u002Fd7a\u002F55076ed7a0954e243f944fc2f330623a.png","button":{"title":"Тыгыдык","link":"https:\u002F\u002Fu.habr.com\u002Fya360_kotov","colorType":"dark"}},{"id":"story-984_4","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F2fb\u002F23b\u002F06c\u002F2fb23b06cf294c2050104b2aef589788.jpg","button":{"title":"Исследование","link":"https:\u002F\u002Fu.habr.com\u002FbO3r0","colorType":"light"}},{"id":"story-984_5","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002Ff50\u002F50f\u002F0ae\u002Ff5050f0aeea1335c4f0544c1863f8342.jpg","button":{"title":"Детали проекта","link":"https:\u002F\u002Fu.habr.com\u002FQJmhe","colorType":"light"}},{"id":"story-984_6","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F825\u002F3dd\u002F5f5\u002F8253dd5f5c19dd061578f1d09310a45f.jpg","button":{"title":"Эксперименты","link":"https:\u002F\u002Fu.habr.com\u002FVaOdo","colorType":"light"}},{"id":"story-984_7","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F3fb\u002Fc92\u002F0f9\u002F3fbc920f9ea81eca2c1c027ff77fc659.jpg","button":{"title":"Это не мем","link":"https:\u002F\u002Fu.habr.com\u002F0Wb3p","colorType":"light"}},{"id":"story-984_8","image":"https:\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fupload_files\u002F2b4\u002F794\u002Fc33\u002F2b4794c33844e60aad9468018fd132cd.jpg","button":{"title":"В засаде","link":"https:\u002F\u002Fu.habr.com\u002FnasCD","colorType":"dark"}}]}]},"technotext":{"years":[],"technotextDocForNominees":null,"technotextDocForWinners":null,"technotextInfo":{},"technotextInfoLoading":false,"technotextWinners":{},"technotextWinnersLoading":false},"userHubsContribution":{"contributionRefs":{"hubRefs":{},"hubIds":{}}},"userInvites":{"availableInvites":0,"usedInvitesIds":[],"usedInvitesRefs":{},"usedInvitesPagesCount":0,"unusedInvitesIds":[],"unusedInvitesRefs":{},"unusedInvitesPagesCount":0},"userVotes":{"karmaVotesList":[],"karmaVotesPagesCount":null,"karmaVotesListLoading":false,"commentsVotesList":[],"commentsVotesPagesCount":null,"commentsVotesListLoading":false,"postsVotesList":[],"postsVotesPagesCount":null,"postsVotesListLoading":false,"userVotesList":[],"userVotesPagesCount":null,"userVotesListLoading":false},"users":{"authorRefs":{},"authorIds":{},"pagesCount":{},"authorProfiles":{"bigsolarwolf":{"alias":"BigSolarWolf","badgets":[{"title":"Захабренный","description":"Пользователь с кармой \u003E0","url":null,"isRemovable":false}],"aboutHtml":"","contacts":[],"invitedBy":{"issuerLogin":"23derevo","timeCreated":"2017-03-22T07:34:40+00:00"},"careerProfile":null,"companies":{"pagesCount":1,"companyIds":["jugru"],"companyRefs":{"jugru":{"id":"2192","alias":"jugru","titleHtml":"JUG Ru Group","descriptionHtml":"Конференции для Senior-разработчиков","imageUrl":"\u002F\u002Fhabrastorage.org\u002Fgetpro\u002Fhabr\u002Fcompany\u002F0a7\u002Fce6\u002Fa86\u002F0a7ce6a86556ff20579e90e6b732e663.png","relatedData":null,"statistics":{"subscribersCount":93717,"rating":110.73,"invest":null},"commonHubs":[]}}}}},"userHubs":{},"userInvitations":{},"authorFollowers":{},"authorFollowed":{},"userSpecialization":{},"karmaStats":[],"statistics":null,"isLoading":false,"authorFollowersLoading":false,"authorFollowedLoading":false,"userHubsLoading":false,"userInvitationsLoading":false,"route":{}},"viewport":{"prevScrollY":{},"scrollY":0,"width":0},"tracker":{"notificationsLoading":false,"notificationsList":[],"notificationsPageCount":0,"pendingMarkNotificationsRead":[],"publicationsLoading":true,"publicationsList":[],"publicationsPageCount":0,"pendingDeletePublications":false,"pendingMarkPublicationsRead":false},"events":{"eventRefs":{},"eventIds":[],"pagesCount":0,"categories":[],"cities":[],"actualEvents":null,"currentEvent":null,"eventsFilter":{"city":"all","timeStarted":null,"timeEnded":null}},"wysiwyg":{"WYSIWYGRulesRefs":null}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="https://assets.habr.com/habr-web/js/chunk-vendors.3b11d41f.js" defer></script><script src="https://assets.habr.com/habr-web/js/app.7a97ea6d.js" defer></script></div>
+    <div id="overlays"><!----><!--teleport anchor--><!----><!--teleport anchor--><!----><!--teleport anchor--><!----><!--teleport anchor--><!----><!--teleport anchor--><!----><!--teleport anchor--></div>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S28W1WC23F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+  
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          const img = new Image();
+          img.src = 'https://vk.com/rtrg?p=VK-RTRG-421343-57vKE';
+        }, 0);
+      });
+    </script>
+  
+    </body>
+
+    </html>
